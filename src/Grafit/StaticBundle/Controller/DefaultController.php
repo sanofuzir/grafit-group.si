@@ -218,7 +218,7 @@ class DefaultController extends Controller
                 $this->getInquiryManager()->saveInquiry($entity);
                 $this->sendEmail($entity);
                 $this->get('session')->getFlashBag()->add('success', 'Povpraševanje je bilo uspešno izvedeno!');
-                return $this->redirect($this->generateUrl('_home'));
+                return $this->redirect($this->generateUrl('_contact'));
             }
         }
 
