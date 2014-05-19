@@ -1,0 +1,128 @@
+/* 
+    Document   : style
+    Created on : Jan 21, 2014, 8:59:08 PM
+    Author     : sanofuzir
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+body {
+    background-color: #FFFFFF;
+    color: #c6c8c9;
+    font-size: 18px;
+}
+h3 {
+    color: black;
+}
+.main-menu-title {
+    font-size: 1.3em;
+}
+.center {
+    margin-top: 80px;
+    padding-top: 20px;
+}
+.nav li {
+    margin-left: 5px;
+}
+.nav {
+    margin-left: -10px;
+}
+.color a:link, color a:visited {
+    color: #c6c8c9;
+}
+.nav2 li a:hover {
+    color: #c6c8c9;
+    font-size: 110%;
+    background-color: transparent;
+}
+#color a:link, #color a:visited{
+    color: #c6c8c9;
+}
+.index-item {
+    border: 1px solid red; 
+    width: 30%; 
+    min-height: 400px; 
+    height: 100%;
+    float: left;
+}
+.border {
+    border: 1px solid black;
+    margin-top: 50px;
+    padding: 50px;
+}
+.map {
+    float: right;
+    margin-top: -220px;
+}
+.title {
+    margin-top: 50px;
+    color: black;
+}
+.main-title {
+    .font-size: 2em;
+    color: red;
+    text-align: center;;
+}
+.main-title a:link, .main-title a:visited {
+    text-decoration: none;
+    color: black;
+}
+.main-title a:hover {
+    font-size: 102%;
+}
+
+/* ADMIN control panel */
+
+.admin-panel div {
+    display: inline-table;
+    border: 1px solid black;
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5 em;
+    margin: 30px 40px;
+    background-color: #5DC13B;
+}
+
+.admin-panel-category a:link, .admin-panel-category a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.admin-panel-category a:hover {
+    color: blue;
+}
+.mytable {
+    border: 1px solid black;
+    padding: 5px;
+    color: black;
+}
+.mytable th {
+    color: black;
+}
+.required {
+    margin-right: 10px;
+}
+#news div, #article div, #storitve div {
+    margin: 20px 0px;
+}
+.shop {
+    margin-top: 10px;
+}
+
+/* povpraševanje */
+.span3 {
+    float: right;
+}
+#inquiry {
+    width: 30%;
+}
+#inquiry div {
+    margin-top: 10px;
+}
+.mysubmit {
+    margin-top: 20px;
+}

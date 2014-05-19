@@ -1,0 +1,18 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}Galerija{% endtrans %}{% endblock %}
+
+{% block content %}
+<h1 class="title title-color">{% trans %}Galerija slik{% endtrans %}</h1>
+<div class="galery">
+    {% for item in images %}
+        <div class="galery-item">
+            <a href="{{ asset('galery/')}}{{item.path }}" data-lightbox="galery" data-title="{{ item.description|length > 30 ? item.description|slice(0, 30) ~ '...' : item.description }}">
+              <img src="{{ asset('galery/')}}{{item.path }}" alt="slika"/>
+            </a><br />
+            <span><strong>{{ item.description|length > 50 ? item.description|slice(0, 50) ~ '...' : item.description }}</strong></span><br />
+            <span>{{ item.created|date('d.m.Y') }}</span>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

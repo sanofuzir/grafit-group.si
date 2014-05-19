@@ -1,1 +1,37 @@
-Hello {{ name }}!
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+<h2 class="title">Urejanje, spreminjanje spletne strani</h2>
+
+<section>
+    <div class="border admin-panel">
+        <div class="admin-panel-category">
+            <a href="{{ path('_admin_news') }}">Urejanje Novic</a>
+        </div>
+        <div class="admin-panel-category">
+            <a href="{{ path('_admin_shop') }}">Urejanje Trgovine in izdelkov</a>
+        </div>
+        <div class="admin-panel-category">
+            <a href="{{ path('_admin_images') }}">Urejanje Galerije slik</a>
+        </div>
+        <div class="admin-panel-category">
+            <a href="{{ path('_admin_storitve') }}">Urejanje Storitev</a>
+        </div>
+        <div class="admin-panel-category">
+            <a href="{{ path('_admin_text') }}">Urejanje Naslovnice</a>
+        </div>
+        <div class="admin-panel-category">
+            <a href="{{ path('_admin_inquiry') }}">Urejanje Povpraševanj</a>
+        </div>
+    </div>
+</section>
+<br />
+<section>
+    <h3>
+        <span>Števec obiskov:</span>
+    </h3>
+    
+</section>
+{% endblock %}

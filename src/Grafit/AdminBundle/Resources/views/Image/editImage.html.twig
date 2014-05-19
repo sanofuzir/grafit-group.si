@@ -1,0 +1,15 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Slike{% endblock %}
+
+{% block content %}
+<h2 style="margin-top: 50px;" class="title">Dodajanje in urejanje slik</h2>
+<form class="border image_form" action="{{ image.id ? path('_admin_edit_image', {'id': image.id}) : path('_admin_add_image') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <!--div class="form-actions"-->
+        <br />
+        <input type="submit" name="save" value="Shrani" class="btn btn-primary">
+    <!--/div-->
+</form>
+
+{% endblock %}

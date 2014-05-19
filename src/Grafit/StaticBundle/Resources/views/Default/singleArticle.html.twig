@@ -1,0 +1,28 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}Izdelki{% endtrans %}{% endblock %}
+
+{% block content %}
+<h1 class="title title-color">{% trans %}Izdelki{% endtrans %}</h1>
+        <table class="table">
+            <tr>
+                <td style="width: 80%; padding-left: 45px;">
+                    <h2>{{ item.name}}</h2>
+                    {{ item.text }}
+                    <p style="text-align: right;"><strong>{{ item.created|date('d.m.Y')}}</strong></p>
+                    <p class="link">
+                        <a href="{{ path('_shop') }}" >{% trans %}Nazaj{% endtrans %} &raquo;</a>
+                    </p>
+                </td>
+                {% set counter = 0 %}
+                {% if item.path is not empty %}
+                {% set counter = counter + 1 %}
+                <td>
+                    <a class="table-image" href="{{ asset('article/')}}{{item.path }}" data-lightbox="Izdelki-{{ counter}}">
+                        <img src="{{ asset('article/')}}{{item.path }}" alt="slika" width=150/>
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+        </table>
+{% endblock %}

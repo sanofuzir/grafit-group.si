@@ -1,0 +1,15 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Texti{% endblock %}
+
+{% block content %}
+<h2 style="margin-top: 50px;" class="title">Dodajanje in urejanje textov na naslovni strani</h2>
+<form class="border text_form" action="{{ items.id ? path('_admin_edit_text', {'id': items.id}) : path('_admin_add_text') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <!--div class="form-actions"-->
+        <br />
+        <input type="submit" name="save" value="Shrani" class="btn btn-primary">
+    <!--/div-->
+</form>
+
+{% endblock %}

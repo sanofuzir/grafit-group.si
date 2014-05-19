@@ -132,6 +132,13 @@ class appDevDebugProjectContainer extends Container
             'fragment.renderer.esi' => 'getFragment_Renderer_EsiService',
             'fragment.renderer.hinclude' => 'getFragment_Renderer_HincludeService',
             'fragment.renderer.inline' => 'getFragment_Renderer_InlineService',
+            'grafit.article_manager' => 'getGrafit_ArticleManagerService',
+            'grafit.category_manager' => 'getGrafit_CategoryManagerService',
+            'grafit.image_manager' => 'getGrafit_ImageManagerService',
+            'grafit.inquiry_manager' => 'getGrafit_InquiryManagerService',
+            'grafit.news_manager' => 'getGrafit_NewsManagerService',
+            'grafit.storitve_manager' => 'getGrafit_StoritveManagerService',
+            'grafit.text_manager' => 'getGrafit_TextManagerService',
             'http_kernel' => 'getHttpKernelService',
             'jms_i18n_routing.cookie_setting_listener' => 'getJmsI18nRouting_CookieSettingListenerService',
             'jms_i18n_routing.loader' => 'getJmsI18nRouting_LoaderService',
@@ -1625,6 +1632,97 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'grafit.article_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Grafit\CoreBundle\Models\ArticleManager A Grafit\CoreBundle\Models\ArticleManager instance.
+     */
+    protected function getGrafit_ArticleManagerService()
+    {
+        return $this->services['grafit.article_manager'] = new \Grafit\CoreBundle\Models\ArticleManager($this->get('doctrine.orm.default_entity_manager'), 'Grafit\\CoreBundle\\Entity\\Article');
+    }
+
+    /**
+     * Gets the 'grafit.category_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Grafit\CoreBundle\Models\CategoryManager A Grafit\CoreBundle\Models\CategoryManager instance.
+     */
+    protected function getGrafit_CategoryManagerService()
+    {
+        return $this->services['grafit.category_manager'] = new \Grafit\CoreBundle\Models\CategoryManager($this->get('doctrine.orm.default_entity_manager'), 'Grafit\\CoreBundle\\Entity\\Category');
+    }
+
+    /**
+     * Gets the 'grafit.image_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Grafit\CoreBundle\Models\ImageManager A Grafit\CoreBundle\Models\ImageManager instance.
+     */
+    protected function getGrafit_ImageManagerService()
+    {
+        return $this->services['grafit.image_manager'] = new \Grafit\CoreBundle\Models\ImageManager($this->get('doctrine.orm.default_entity_manager'), 'Grafit\\CoreBundle\\Entity\\Image');
+    }
+
+    /**
+     * Gets the 'grafit.inquiry_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Grafit\CoreBundle\Models\InquiryManager A Grafit\CoreBundle\Models\InquiryManager instance.
+     */
+    protected function getGrafit_InquiryManagerService()
+    {
+        return $this->services['grafit.inquiry_manager'] = new \Grafit\CoreBundle\Models\InquiryManager($this->get('doctrine.orm.default_entity_manager'), 'Grafit\\CoreBundle\\Entity\\Inquiry');
+    }
+
+    /**
+     * Gets the 'grafit.news_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Grafit\CoreBundle\Models\NewsManager A Grafit\CoreBundle\Models\NewsManager instance.
+     */
+    protected function getGrafit_NewsManagerService()
+    {
+        return $this->services['grafit.news_manager'] = new \Grafit\CoreBundle\Models\NewsManager($this->get('doctrine.orm.default_entity_manager'), 'Grafit\\CoreBundle\\Entity\\News');
+    }
+
+    /**
+     * Gets the 'grafit.storitve_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Grafit\CoreBundle\Models\StoritveManager A Grafit\CoreBundle\Models\StoritveManager instance.
+     */
+    protected function getGrafit_StoritveManagerService()
+    {
+        return $this->services['grafit.storitve_manager'] = new \Grafit\CoreBundle\Models\StoritveManager($this->get('doctrine.orm.default_entity_manager'), 'Grafit\\CoreBundle\\Entity\\Storitve');
+    }
+
+    /**
+     * Gets the 'grafit.text_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Grafit\CoreBundle\Models\TextManager A Grafit\CoreBundle\Models\TextManager instance.
+     */
+    protected function getGrafit_TextManagerService()
+    {
+        return $this->services['grafit.text_manager'] = new \Grafit\CoreBundle\Models\TextManager($this->get('doctrine.orm.default_entity_manager'), 'Grafit\\CoreBundle\\Entity\\Text');
+    }
+
+    /**
      * Gets the 'http_kernel' service.
      *
      * This service is shared.
@@ -2256,7 +2354,7 @@ class appDevDebugProjectContainer extends Container
         $n = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($l, array('login_path' => 'fos_user_security_login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
         $n->setProviderKey('main');
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $m, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $l, 'main', $n, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $l, array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5367617ee010f', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $l, 'fos_user_security_login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $m, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $l, 'main', $n, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $l, array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '537a7b73c0f89', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $l, 'fos_user_security_login', false), NULL, NULL, $a));
     }
 
     /**
@@ -3507,7 +3605,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/Users/sanofuzir/Sites/grafit-group/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', 'Twig');
         $instance->addPath('/Users/sanofuzir/Sites/grafit-group/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('/Users/sanofuzir/Sites/grafit-group/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
-        $instance->addPath('/Users/sanofuzir/Sites/grafit-group/src/Grafit/CoreBundle/Resources/views', 'Core');
         $instance->addPath('/Users/sanofuzir/Sites/grafit-group/src/Grafit/StaticBundle/Resources/views', 'Static');
         $instance->addPath('/Users/sanofuzir/Sites/grafit-group/src/Grafit/UserBundle/Resources/views', 'User');
         $instance->addPath('/Users/sanofuzir/Sites/grafit-group/src/Grafit/AdminBundle/Resources/views', 'Admin');
@@ -3816,7 +3913,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $this->get('security.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5367617ee010f')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $this->get('security.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('537a7b73c0f89')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -4548,6 +4645,20 @@ class appDevDebugProjectContainer extends Container
             'sensio_framework_extra.converter.doctrine.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DoctrineParamConverter',
             'sensio_framework_extra.converter.datetime.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
+            'grafit.entity.news.class' => 'Grafit\\CoreBundle\\Entity\\News',
+            'grafit.news_manager.class' => 'Grafit\\CoreBundle\\Models\\NewsManager',
+            'grafit.entity.image.class' => 'Grafit\\CoreBundle\\Entity\\Image',
+            'grafit.image_manager.class' => 'Grafit\\CoreBundle\\Models\\ImageManager',
+            'grafit.entity.article.class' => 'Grafit\\CoreBundle\\Entity\\Article',
+            'grafit.article_manager.class' => 'Grafit\\CoreBundle\\Models\\ArticleManager',
+            'grafit.entity.storitve.class' => 'Grafit\\CoreBundle\\Entity\\Storitve',
+            'grafit.storitve_manager.class' => 'Grafit\\CoreBundle\\Models\\StoritveManager',
+            'grafit.entity.text.class' => 'Grafit\\CoreBundle\\Entity\\Text',
+            'grafit.text_manager.class' => 'Grafit\\CoreBundle\\Models\\TextManager',
+            'grafit.entity.category.class' => 'Grafit\\CoreBundle\\Entity\\Category',
+            'grafit.category_manager.class' => 'Grafit\\CoreBundle\\Models\\CategoryManager',
+            'grafit.entity.inquiry.class' => 'Grafit\\CoreBundle\\Entity\\Inquiry',
+            'grafit.inquiry_manager.class' => 'Grafit\\CoreBundle\\Models\\InquiryManager',
             'fos_user.backend_type_orm' => true,
             'fos_user.security.interactive_login_listener.class' => 'FOS\\UserBundle\\EventListener\\LastLoginListener',
             'fos_user.security.login_manager.class' => 'FOS\\UserBundle\\Security\\LoginManager',

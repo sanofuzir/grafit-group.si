@@ -1,0 +1,50 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Novice{% endblock %}
+
+{% block content %}
+<h2>Novice</h2>
+<a class="btn btn-small pull-right" href="{{ path('_admin_add_news') }}"><i class="icon-plus"></i> Dodaj Novico</a>
+<table class="table table-condensed table-hover border mytable">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th style="text-align: center;">Naslov</th>
+      <th style="text-align: center;">Text</th>
+      <th style="text-align: center;">Slika</th>
+      <th style="text-align: center;">Aktualna</th>
+      <th style="text-align: center;">Datum vnosa</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% set counter = 0 %}
+    {% for item in news %}
+    {% set counter = counter + 1 %}
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name}}</td>
+      <td>{{ item.text|length > 50 ? item.text|slice(0, 50) ~ '...' : item.text }}</td>
+      <td>
+          <a href="{{ asset('news/')}}{{item.path }}" data-lightbox="Novice-{{ counter}}">
+            <img src="{{ asset('news/')}}{{item.path }}" alt="slika" style="width: 50px; height: 50px;"/>
+          </a>
+      </td>
+      <td style="text-align: center;">
+        {% if item.actual =='yes' %}
+          <span style="color: red;">{% filter upper %}{{ item.actual }}{% endfilter %}</span>
+        {% else %}
+          <span style="color: blue;">{% filter upper %}{{ item.actual }}{% endfilter %}</span>
+        {% endif %}
+      </td>
+      <td>{{ item.created|date('d.m.Y H:i:s')}}</td>
+      <td><a href="{{ path('_admin_edit_news', {'id': item.id}) }}" title="Uredi novico">
+              <i class="icon-edit"></i>Uredi</a>&nbsp;
+              <a href="{{ path('_admin_delete_news', {'id': item.id } ) }}" class="confirmation" title="Odstrani novico" data-confirmation="Ali si prepričan?">
+                  <i class="icon-trash">Izbriši</i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Kategorije{% endblock %}
+
+{% block content %}
+<h2>Izdelki</h2>
+<a class="btn btn-small pull-right" href="{{ path('_admin_add_article') }}"><i class="icon-plus"></i> Dodaj Kategorijo</a>
+<table class="table table-condensed table-hover border mytable">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th style="text-align: center;">Kategorija</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% set counter = 0 %}
+    {% for item in items %}
+    {% set counter = counter + 1 %}
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name}}</td>
+      <td><a href="{{ path('_admin_edit_category', {'id': item.id}) }}" title="Uredi kategorijo">
+              <i class="icon-edit"></i>Uredi</a>&nbsp;
+              <a href="{{ path('_admin_delete_category', {'id': item.id } ) }}" class="confirmation" title="Odstrani Kategorijo" data-confirmation="Ali si prepričan?">
+                  <i class="icon-trash">Izbriši</i></a>
+          </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

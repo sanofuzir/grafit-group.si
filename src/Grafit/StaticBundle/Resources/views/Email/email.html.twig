@@ -1,0 +1,15 @@
+<h2>Prejeli ste povpraševanje od osebe {{ data.name }}</h2>
+
+<p><b>Ime:</b>{{ data.name }}</p>
+<p><b>Priimek:</b>{{ data.surname }}</p>
+{% if data.company is not empty %}
+    <p><b>Podjetje:</b>{{ data.company }}</p>
+{% endif %}
+<p><b>Telefon:</b>{{ data.telephone }}</p>
+<p><b>Email:</b>{{ data.email }}</p>
+<p><b>Vsebina:</b></p>
+<p>{{ data.name }}</p>
+
+<p><b>Odgovori:</b>&nbsp;
+    <a href="mailto:{{ data.email }}">{{ data.email }}</a>
+</p>

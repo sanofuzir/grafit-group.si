@@ -1,1 +1,13 @@
-Hello {{ name }}!
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}Domov{% endtrans %}{% endblock %}
+
+{% block content %}
+
+<div class="center">
+	<h1 style="text-align: center;">Naslovnica</h1>
+	<div class="index-item">Novice</div>
+	<div class="index-item" style="float: right;">Aktualno</div>
+</div>
+
+{% endblock %}

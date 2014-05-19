@@ -1,0 +1,42 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}Trgovina{% endtrans %}{% endblock %}
+
+{% block content %}
+<h1 class="title title-color">{% trans %}Trgovina{% endtrans %}</h1>
+<ul>
+{% for item in categorys %}
+    <li><a href="{{ path('_category_article', ({'id': item.id}) ) }}">{{ item.name }}</a></li>
+{% endfor %}
+</ul>
+{% if articles is not empty %}    
+    {% for item in articles %}
+        <table class="table">
+            <tr>
+                <td style="width: 80%; padding-left: 45px;">
+                    <h2>{{ item.name}}</h2>
+                    {{ item.text|length > 450 ? item.text|slice(0, 450) ~ '...' : item.text }}
+                    <br />
+                    <p class="link">
+                        <a href="{{ path('_single_article', ({'id': item.id}) ) }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
+                    </p>
+                    <p>{{ item.status }}</p>
+                    <p><strong>{{ item.created|date('d.m.Y')}}</strong></p>
+                </td>
+                {% set counter = 0 %}
+                {% if item.path is not empty %}
+                {% set counter = counter + 1 %}
+                <td>
+                    <a class="table-image" href="{{ asset('article/')}}{{item.path }}" data-lightbox="Novice-{{ counter}}">
+                        <img src="{{ asset('article/')}}{{item.path }}" alt="slika" width=150/>
+                    </a>
+                </td>
+                {% endif %}
+            </tr>
+        </table>
+    {% endfor %}
+{% else %}
+    <p style="padding: 30px 0px 0px 100px; margin-bottom: 400px;">{% trans %}V izdelavi{% endtrans %}</p>
+{% endif %}
+    
+{% endblock %}

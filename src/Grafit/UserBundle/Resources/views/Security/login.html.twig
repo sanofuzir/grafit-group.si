@@ -1,0 +1,29 @@
+{% extends "StaticBundle::layout.html.twig" %}
+
+{% block title %}Login{% endblock %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+{% if error %}
+    <div>{{ error|trans }}</div>
+{% endif %}
+    <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <h2 class="form-signin-heading" style="margin-top: 80px;">Prijava</h2>
+        <p>
+            <span>Uporabnik:</span>
+            <input type="text" class="input-block-level" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'Uporabniško ime'|trans }}">
+        </p>
+        <p>
+            <span>Geslo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="password" class="input-block-level" id="password" name="_password" required="required" placeholder="{{ 'Geslo'|trans }}">
+        </p>
+        
+        <label for="remember_me" class="checkbox">
+          <input type="checkbox" id="remember_me" name="_remember_me" value="on"> {{ 'Zapomni si me'|trans }}
+        </label>
+        <input class="btn btn-large btn-primary"  type="submit" id="_submit" name="_submit" value="{{ 'Prijava'|trans }}" />
+    </form>
+
+{% endblock content %}

@@ -4,17 +4,58 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
-    <parameters>
-        <parameter key="core.example.class">Grafit\CoreBundle\Example</parameter>
+   <parameters>
+        <parameter key="grafit.entity.news.class">Grafit\CoreBundle\Entity\News</parameter>
+        <parameter key="grafit.news_manager.class">Grafit\CoreBundle\Models\NewsManager</parameter>
+        <parameter key="grafit.entity.image.class">Grafit\CoreBundle\Entity\Image</parameter>
+        <parameter key="grafit.image_manager.class">Grafit\CoreBundle\Models\ImageManager</parameter>
+        <parameter key="grafit.entity.article.class">Grafit\CoreBundle\Entity\Article</parameter>
+        <parameter key="grafit.article_manager.class">Grafit\CoreBundle\Models\ArticleManager</parameter>
+        <parameter key="grafit.entity.storitve.class">Grafit\CoreBundle\Entity\Storitve</parameter>
+        <parameter key="grafit.storitve_manager.class">Grafit\CoreBundle\Models\StoritveManager</parameter>
+        <parameter key="grafit.entity.text.class">Grafit\CoreBundle\Entity\Text</parameter>
+        <parameter key="grafit.text_manager.class">Grafit\CoreBundle\Models\TextManager</parameter>
+        <parameter key="grafit.entity.category.class">Grafit\CoreBundle\Entity\Category</parameter>
+        <parameter key="grafit.category_manager.class">Grafit\CoreBundle\Models\CategoryManager</parameter>
+        <parameter key="grafit.entity.storitve.class">Grafit\CoreBundle\Entity\Storitve</parameter>
+        <parameter key="grafit.storitve_manager.class">Grafit\CoreBundle\Models\StoritveManager</parameter>
+        <parameter key="grafit.entity.Inquiry.class">Grafit\CoreBundle\Entity\Inquiry</parameter>
+        <parameter key="grafit.inquiry_manager.class">Grafit\CoreBundle\Models\InquiryManager</parameter>
     </parameters>
 
     <services>
-        <service id="core.example" class="%core.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="grafit.storitve_manager" class="%grafit.storitve_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%grafit.entity.storitve.class%</argument>
+        </service>
+        <service id="grafit.category_manager" class="%grafit.category_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%grafit.entity.category.class%</argument>
+        </service>
+        <service id="grafit.news_manager" class="%grafit.news_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%grafit.entity.news.class%</argument>
+        </service>
+        <service id="grafit.image_manager" class="%grafit.image_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%grafit.entity.image.class%</argument>
+        </service>
+        <service id="grafit.article_manager" class="%grafit.article_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%grafit.entity.article.class%</argument>
+        </service>
+        <service id="grafit.storitve_manager" class="%grafit.storitve_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%grafit.entity.storitve.class%</argument>
+        </service>
+        <service id="grafit.text_manager" class="%grafit.text_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%grafit.entity.text.class%</argument>
+        </service>
+        <service id="grafit.inquiry_manager" class="%grafit.inquiry_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%grafit.entity.inquiry.class%</argument>
         </service>
     </services>
-    -->
+    
 </container>

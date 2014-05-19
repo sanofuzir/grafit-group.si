@@ -519,6 +519,20 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
+    <parameter key="grafit.entity.news.class">Grafit\CoreBundle\Entity\News</parameter>
+    <parameter key="grafit.news_manager.class">Grafit\CoreBundle\Models\NewsManager</parameter>
+    <parameter key="grafit.entity.image.class">Grafit\CoreBundle\Entity\Image</parameter>
+    <parameter key="grafit.image_manager.class">Grafit\CoreBundle\Models\ImageManager</parameter>
+    <parameter key="grafit.entity.article.class">Grafit\CoreBundle\Entity\Article</parameter>
+    <parameter key="grafit.article_manager.class">Grafit\CoreBundle\Models\ArticleManager</parameter>
+    <parameter key="grafit.entity.storitve.class">Grafit\CoreBundle\Entity\Storitve</parameter>
+    <parameter key="grafit.storitve_manager.class">Grafit\CoreBundle\Models\StoritveManager</parameter>
+    <parameter key="grafit.entity.text.class">Grafit\CoreBundle\Entity\Text</parameter>
+    <parameter key="grafit.text_manager.class">Grafit\CoreBundle\Models\TextManager</parameter>
+    <parameter key="grafit.entity.category.class">Grafit\CoreBundle\Entity\Category</parameter>
+    <parameter key="grafit.category_manager.class">Grafit\CoreBundle\Models\CategoryManager</parameter>
+    <parameter key="grafit.entity.inquiry.class">Grafit\CoreBundle\Entity\Inquiry</parameter>
+    <parameter key="grafit.inquiry_manager.class">Grafit\CoreBundle\Models\InquiryManager</parameter>
     <parameter key="fos_user.backend_type_orm">true</parameter>
     <parameter key="fos_user.security.interactive_login_listener.class">FOS\UserBundle\EventListener\LastLoginListener</parameter>
     <parameter key="fos_user.security.login_manager.class">FOS\UserBundle\Security\LoginManager</parameter>
@@ -2905,7 +2919,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5367617ee010f</argument>
+            <argument>537a7b73c0f89</argument>
           </service>
         </argument>
       </argument>
@@ -3175,7 +3189,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5367617ee010f</argument>
+            <argument>537a7b73c0f89</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3885,6 +3899,34 @@
       <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
     </service>
+    <service id="grafit.storitve_manager" class="Grafit\CoreBundle\Models\StoritveManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>Grafit\CoreBundle\Entity\Storitve</argument>
+    </service>
+    <service id="grafit.category_manager" class="Grafit\CoreBundle\Models\CategoryManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>Grafit\CoreBundle\Entity\Category</argument>
+    </service>
+    <service id="grafit.news_manager" class="Grafit\CoreBundle\Models\NewsManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>Grafit\CoreBundle\Entity\News</argument>
+    </service>
+    <service id="grafit.image_manager" class="Grafit\CoreBundle\Models\ImageManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>Grafit\CoreBundle\Entity\Image</argument>
+    </service>
+    <service id="grafit.article_manager" class="Grafit\CoreBundle\Models\ArticleManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>Grafit\CoreBundle\Entity\Article</argument>
+    </service>
+    <service id="grafit.text_manager" class="Grafit\CoreBundle\Models\TextManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>Grafit\CoreBundle\Entity\Text</argument>
+    </service>
+    <service id="grafit.inquiry_manager" class="Grafit\CoreBundle\Models\InquiryManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>Grafit\CoreBundle\Entity\Inquiry</argument>
+    </service>
     <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\EventListener\LastLoginListener">
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="fos_user.user_manager"/>
@@ -4569,10 +4611,6 @@
       <call method="addPath">
         <argument>/Users/sanofuzir/Sites/grafit-group/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views</argument>
         <argument>Doctrine</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Users/sanofuzir/Sites/grafit-group/src/Grafit/CoreBundle/Resources/views</argument>
-        <argument>Core</argument>
       </call>
       <call method="addPath">
         <argument>/Users/sanofuzir/Sites/grafit-group/src/Grafit/StaticBundle/Resources/views</argument>

@@ -1,0 +1,40 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Slike{% endblock %}
+
+{% block content %}
+<h2>Slike</h2>
+<a class="btn btn-small pull-right" href="{{ path('_admin_add_image') }}"><i class="icon-plus"></i> Dodaj Slike</a>
+<table class="table table-condensed table-hover border mytable">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>opis</th>
+      <th>Datum vnosa</th>
+      <th>Slika</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% set counter = 0 %}
+    {% for image in images %}
+    {% set counter = counter + 1 %}
+    <tr>
+      <td>{{ image.id }}</td>
+      <td>{{ image.description|length > 50 ? image.description|slice(0, 50) ~ '...' : image.description }}</td>
+      <td>{{ image.created|date('d.m.Y H:i:s')}}</td>
+      <td>
+          <a href="{{ asset('galery/')}}{{image.path }}" data-lightbox="galery-{{ counter}}">
+            <img style="width: 50px;" src="{{ asset('galery/')}}{{image.path }}" alt="slika" width="50"/>
+          </a>
+      </td>
+      <td><a href="{{ path('_admin_edit_image', {'id': image.id}) }}" title="Uredi sliko">
+              <i class="icon-edit"></i>Uredi</a>&nbsp;
+              <a href="{{ path('_admin_delete_image', {'id': image.id } ) }}" class="confirmation" title="Odstrani sliko" data-confirmation="Ali si prepričan?">
+                  <i class="icon-trash">Izbriši</i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
