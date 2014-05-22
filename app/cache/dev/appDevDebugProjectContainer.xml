@@ -39,7 +39,7 @@
     <parameter key="mailer_host">null</parameter>
     <parameter key="mailer_user">info@grafit-group.si</parameter>
     <parameter key="mailer_password">master</parameter>
-    <parameter key="locale">en</parameter>
+    <parameter key="locale">sl</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
@@ -98,7 +98,7 @@
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">sl</parameter>
     <parameter key="session.class">Symfony\Component\HttpFoundation\Session\Session</parameter>
     <parameter key="session.flashbag.class">Symfony\Component\HttpFoundation\Session\Flash\FlashBag</parameter>
     <parameter key="session.attribute_bag.class">Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag</parameter>
@@ -688,7 +688,7 @@
     </service>
     <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener">
       <tag name="kernel.event_subscriber"/>
-      <argument>en</argument>
+      <argument>sl</argument>
       <argument type="service" id="router" on-invalid="ignore"/>
       <argument type="service" id="request_stack"/>
     </service>
@@ -847,7 +847,7 @@
       </argument>
       <call method="setFallbackLocales">
         <argument type="collection">
-          <argument>en</argument>
+          <argument>sl</argument>
         </argument>
       </call>
       <call method="addResource">
@@ -2925,7 +2925,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>537e5fa1d8445</argument>
+            <argument>537e66d30dca7</argument>
           </service>
         </argument>
       </argument>
@@ -3195,7 +3195,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>537e5fa1d8445</argument>
+            <argument>537e66d30dca7</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>

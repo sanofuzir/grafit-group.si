@@ -10,5 +10,5 @@ parameters:
     mailer_host: null
     mailer_user: info@grafit-group.si
     mailer_password: master
-    locale: en
+    locale: sl
     secret: ThisTokenIsNotSoSecretChangeIt
