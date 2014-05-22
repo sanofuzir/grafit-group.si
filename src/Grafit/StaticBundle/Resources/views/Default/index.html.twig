@@ -4,10 +4,80 @@
 
 {% block content %}
 
-<div class="center">
-	<h1 style="text-align: center;">Naslovnica</h1>
-	<div class="index-item">Novice</div>
-	<div class="index-item" style="float: right;">Aktualno</div>
+<div class="center index-style">
+	<img src="{{ asset('bundles/static/images/index.jpg') }}"/>
+</div>
+
+<div class="texti-index">
+	{% if text is not empty %}
+	<p class="main-menu-title">{{ text.text }}</p>
+	<div class="circles">
+		<svg height="30" width="30">
+		  <circle cx="15" cy="15" r="10" stroke="#5DC13B" stroke-width="3" fill="#5DC13B" />
+		</svg>
+		<svg height="30" width="30">
+		  <circle cx="15" cy="15" r="10" stroke="black" stroke-width="3" fill="black" />
+		</svg>
+		<svg height="30" width="30">
+		  <circle cx="15" cy="15" r="10" stroke="black" stroke-width="3" fill="black" />
+		</svg>
+	</div>
+	{% endif %}
+</div>
+
+<div class="oglasi">
+	<div>
+		<p class="main-menu-title" style="color: white;">{% trans %}Potrebujete novo reklamno tablo?{% endtrans %}</p>
+	</div>
+	<div style="background-color: #6FC851;">
+		<p class="main-menu-title" style="color: white;">{% trans %}Želite, da je vaš jekleni konjiček nekaj posebnega?{% endtrans %}</p>
+	</div>
+	<div style="background-color: #93D67C;">
+		<p class="main-menu-title" style="color: white;">{% trans %}Potrebujete novo grafično podobo?{% endtrans %}</p>
+	</div>
+</div>
+<table style="margin-top: 120px;" id="index-table">
+	<tr>
+		<td style="vertical-align: text-top; width: 60%;">
+		{% if actualNews is not empty %}
+			<h2>{{ actualNews.name }}</h2>
+			{% if actualNews.path is not empty %}
+				<img src="{{ asset('news/')}}{{ actualNews.path }}" alt="slika" style="width: 150px; height: 150px; padding: 10px;" align="left"/>
+			{% endif %}
+			<p>{{ actualNews.text|length > 800 ? actualNews.text|slice(0, 800) ~ '...' : actualNews.text }}</p>
+			<a href="{{ path('_single_news', ({'id': actualNews.id}) ) }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
+		{% endif %}
+		</td>
+		<td style="border-left: 1px solid #FCFCFC;">
+			{% if news is not empty %}
+			{% for item in news %}
+				<h2>{{ item.name }}</h2>
+				{% if item.path is not empty %}
+					<img src="{{ asset('news/')}}{{ item.path }}" alt="slika" style="width: 150px; height: 150px; padding: 10px;" align="left"/>
+				{% endif %}
+				<p>{{ item.text|length > 250 ? item.text|slice(0, 250) ~ '...' : item.text }}</p>
+				<a href="{{ path('_single_news', ({'id': item.id}) ) }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
+			{% endfor %}
+		{% endif %}
+		</td>
+	</tr>
+</table>
+
+
+
+<div class="index-storitve">
+	{% if services is not empty %}
+	{% for item in services %}
+		<div>
+			<h2>{{ item.name }}</h2>
+			{% if item.path is not empty %}
+				<img src="{{ asset('storitve/')}}{{ item.path }}" alt="slika" style="width: 150px; height: 150px; padding: 10px;" align="left"/>
+			{% endif %}
+			<p>{{ item.text|length > 450 ? item.text|slice(0, 450) ~ '...' : item.text }}</p>
+			<a href="{{ path('_services') }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
+		</div>
+	{% endfor %}
+	{% endif %}
 </div>
 
 {% endblock %}

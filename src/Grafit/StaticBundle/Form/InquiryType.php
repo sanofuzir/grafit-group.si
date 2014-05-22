@@ -13,27 +13,27 @@ class InquiryType extends AbstractType
         $builder
             ->add('name',null, array(
                 'attr'  => array('class' => 'span3'),
-                'label' => 'Ime*:'
+                'label' => 'Ime'
             ))
             ->add('surname',null, array(
                 'attr'  => array('class' => 'span3'),
-                'label' => 'Priimek*:'
+                'label' => 'Priimek'
             ))
             ->add('company',null, array(
                 'attr'  => array('class' => 'span3'),
-                'label' => 'Podjetje:'
+                'label' => 'Podjetje'
             ))
             ->add('telephone',null, array(
                 'attr'  => array('class' => 'span3'),
-                'label' => 'Telefon*:'
+                'label' => 'Telefon'
             ))
             ->add('email',null, array(
                 'attr'  => array('class' => 'span3'),
-                'label' => 'Email*:'
+                'label' => 'Email'
             ))
             ->add('text', 'textarea', array(
-                'attr'  => array('class' => 'span3', 'rows' => 4, 'cols'=>48),
-                'label' => 'Vnos besedila:'
+                'attr'  => array('class' => 'span4', 'rows' => 4, 'cols'=>48),
+                'label' => 'Vnos besedila'
             ))
             ;
     }

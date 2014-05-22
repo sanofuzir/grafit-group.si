@@ -16,7 +16,15 @@ class StoritveRepository extends EntityRepository
     public function findAll() 
     {
         return $this->getEntityManager()
-                    ->createQuery('SELECT s FROM CoreBundle:storitve s ORDER BY s.name DESC')
+                    ->createQuery('SELECT s FROM CoreBundle:storitve s ORDER BY s.created DESC')
+                    ->getResult();
+    }
+
+    public function findLastTreeStoritve()
+    {
+    	return $this->getEntityManager()
+                    ->createQuery('SELECT s FROM CoreBundle:storitve s ORDER BY s.created DESC')
+                    ->setMaxResults(3)
                     ->getResult();
     }
     

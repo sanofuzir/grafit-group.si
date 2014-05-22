@@ -26,4 +26,22 @@ class NewsRepository extends EntityRepository
                     ->setMaxResults($limit)
                     ->getResult();
     }
+
+    public function findActualNews()
+    {
+        return $this->getEntityManager()
+                    ->createQuery('SELECT n FROM CoreBundle:news n WHERE n.actual = :actual ORDER BY n.created DESC')
+                    ->setParameter('actual', 'yes')
+                    ->setMaxResults(1)
+                    ->getResult();
+    }
+
+    public function findLastTwoNews()
+    {
+        return $this->getEntityManager()
+                    ->createQuery('SELECT n FROM CoreBundle:news n WHERE n.actual = :actual ORDER BY n.created DESC')
+                    ->setParameter('actual', 'no')
+                    ->setMaxResults(2)
+                    ->getResult();
+    }
 }

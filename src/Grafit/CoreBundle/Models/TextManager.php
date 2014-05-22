@@ -17,9 +17,32 @@ class TextManager {
         $this->class = $class;
         $this->repository = $em->getRepository($class);
     }
+
+    /**
+     * Get all Text
+     *
+     * @return Text
+     */
     public function findAllText()
     {
         return $this->repository->findAll();
+    }
+
+    /**
+     * Get random Text
+     *
+     * @return Text
+     */
+    public function getRandomText()
+    {
+        $texts = $this->repository->findAll();
+        shuffle($texts);
+        if (!empty($texts)) {
+            return $texts[0];
+        } else {
+            return null;
+        }
+        
     }
 
     /**

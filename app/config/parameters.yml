@@ -8,7 +8,7 @@ parameters:
     database_password: null
     mailer_transport: gmail
     mailer_host: null
-    mailer_user: grafitgroup@gmail.com
+    mailer_user: info@grafit-group.si
     mailer_password: master
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt

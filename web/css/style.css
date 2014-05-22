@@ -7526,14 +7526,54 @@ root {
 }
 body {
     background-color: #FFFFFF;
-    color: #c6c8c9;
+    color: black;
     font-size: 18px;
+}
+h1, h2, .title {
+    font-family: Bebas;
 }
 h3 {
     color: black;
 }
+.span4 {
+    margin-left: 0px;
+}
+.container {
+    margin-top: 280px;
+}
 .main-menu-title {
     font-size: 1.3em;
+    color: black;
+}
+.my-top-meni {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.my-top-meni div {
+    display: inline-table;
+}
+.my-meni-labels {
+    width: 100%;
+}
+.main-menu-title {
+    font-family: Bebas;
+}
+.flags {
+    float: right;
+}
+.flags img {
+    width: 25px;
+}
+.my-button {
+    background-color: #5DC13B;
+    width: 50px;
+    font-size: .6em;
+}
+.nav li {
+    border-top: 1px solid #F2F2F2;
+    border-bottom: 1px solid #F2F2F2;
+    border-right: 1px solid #F2F2F2;
+    padding-left: 20px;
 }
 .center {
     margin-top: 80px;
@@ -7541,16 +7581,13 @@ h3 {
 }
 .nav li {
     margin-left: 5px;
-}
-.nav {
-    margin-left: -10px;
+    width: 16%;
 }
 .color a:link, color a:visited {
     color: #c6c8c9;
 }
 .nav2 li a:hover {
     color: #c6c8c9;
-    font-size: 110%;
     background-color: transparent;
 }
 #color a:link, #color a:visited{
@@ -7640,6 +7677,87 @@ h3 {
 }
 .mysubmit {
     margin-top: 20px;
+}
+/* index page */
+.index-style {
+    margin-top: -50px;
+}
+.index-style img {
+    width: 99.9%;
+}
+.texti-index {
+    position: absolute;
+    margin-top: -350px;
+}
+.texti-index p {
+    color: black;
+    font-size: 2em;
+    padding-left: 50px;
+}
+.circles {
+    margin-left: 50px;
+}
+.oglasi div {
+    background-color: #5DC13B;
+    width: 33.3%;
+    height: 100px;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: 2.em;
+    padding-top: 20px;
+}
+/* Novice */
+h2 {
+    color: black;
+}
+#index-table td {
+    padding: 20px;
+}
+.index-storitve div {
+    width: 30%;
+    float: left;
+    margin-left: 20px;
+}
+
+/* Galerija */
+.galery {
+    margin-bottom: 20px;
+}
+.galery-item {
+    background-color: #F2F2F2;
+    padding: 10px;
+    width: 30%;
+    display: inline-table;
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+.galery-item img {
+    max-height: 200px;
+    margin-left: 10%;
+}
+
+/* trgovina */
+
+.my-category-menu {
+    width: 20%;
+    position: absolute;
+    background-color: #5DC13B;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.my-category-menu li {
+    list-style-type: none;
+    margin-top: 10px;
+}
+.my-category-menu li:hover {
+    font-weight:bold;
+}
+.shop-table {
+    width: 79%;
+    float: right;
 }
 /* Preload images */
 body:after {

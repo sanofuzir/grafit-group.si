@@ -67,6 +67,17 @@ class Storitve
     protected $size;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    public function __construct() {
+        $this->created = new \DateTime('now');
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -216,6 +227,16 @@ class Storitve
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 
     /**

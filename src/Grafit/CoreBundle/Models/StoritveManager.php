@@ -17,6 +17,22 @@ class StoritveManager {
         $this->class = $class;
         $this->repository = $em->getRepository($class);
     }
+
+    /**
+     * Get last 3 Storitve
+     *
+     * @return Storitve
+     */
+    public function findLastTreeStoritve()
+    {
+        return $this->repository->findLastTreeStoritve();
+    }
+
+    /**
+     * Get all Storitve
+     *
+     * @return Storitve
+     */
     public function findAllStoritve()
     {
         return $this->repository->findAll();

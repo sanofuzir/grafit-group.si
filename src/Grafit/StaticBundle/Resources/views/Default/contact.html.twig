@@ -3,8 +3,7 @@
 {% block title %}{% trans %}Kontakt{% endtrans %}{% endblock %}
 
 {% block content %}
-<div class="center">
-	<h1 style="text-align: center;">{% trans %}Kontakt{% endtrans %}</h1>
+	<h1 class="title title-color">{% trans %}Kontakt{% endtrans %}</h1>
 
 	<div class="border" style="width: 40%; padding: 30px;">
 		<p><b>{% trans %}Naslov{% endtrans %}:</b><br />Stantetova ulica 7<br /> 3320 Velenje</p>
@@ -15,15 +14,14 @@
 		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2753.436770860347!2d15.1219798!3d46.360721700000006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476566d255dc6411%3A0xa367690178ac4541!2sStantetova+ulica+7!5e0!3m2!1sen!2s!4v1399295655669" width="600" height="450" frameborder="0" style="border:0"></iframe>
 	</div>
 	<div class="inquiry">
-	    <h2>Povpraševanje</h2>
+	    <h2>{% trans %}Povpraševanje{% endtrans %}</h2>
 	    <form class="order_form" action="{{ path('_add_inquiry') }}" method="post" {{ form_enctype(form) }} novalidate>
         {{ form_widget(form) }}
         <!--div class="form-actions"-->
-            <br /><br />
+            <br />
             <input type="submit" name="naroči" value="Pošlji" class="btn btn-primary mysubmit">
         <!--/div-->
 		</form>
 	</div>
-</div>
-
+	<br />
 {% endblock %}

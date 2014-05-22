@@ -17,6 +17,32 @@ class NewsManager {
         $this->class = $class;
         $this->repository = $em->getRepository($class);
     }
+
+    /**
+     * Get last 2 News (actual = no)
+     *
+     * @return News
+     */
+    public function findLastTwoNews()
+    {
+        return $this->repository->findLastTwoNews();
+    }
+
+    /**
+     * Get single last Actual News
+     *
+     * @return News
+     */
+    public function findActualNews() 
+    {
+        return current($this->repository->findActualNews());
+    }
+
+    /**
+     * Get all News
+     *
+     * @return News
+     */
     public function findAllNews()
     {
         return $this->repository->findAll();

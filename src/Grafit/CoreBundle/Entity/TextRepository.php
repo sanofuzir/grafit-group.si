@@ -18,12 +18,4 @@ class TextRepository extends EntityRepository
                     ->createQuery('SELECT t FROM CoreBundle:text t ORDER BY t.created DESC')
                     ->getResult();
     }
-    
-    public function findAllWithLimit($limit) 
-    {
-        return $this->getEntityManager()
-                    ->createQuery('SELECT t FROM CoreBundle:text t ORDER BY t.created DESC')
-                    ->setMaxResults($limit)
-                    ->getResult();
-    }
 }

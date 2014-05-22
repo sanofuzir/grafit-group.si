@@ -19,11 +19,21 @@ use Grafit\CoreBundle\Models\CategoryManager;
 use Grafit\CoreBundle\Entity\Inquiry;
 use Grafit\CoreBundle\Models\InquiryManager;
 use Grafit\StaticBundle\Form\InquiryType;
+use Grafit\CoreBundle\Entity\Text;
+use Grafit\CoreBundle\Models\TextManager;
 
 class DefaultController extends Controller
 {
     private $manager;
     
+    /**
+     * @return TextManager
+     */
+    private function getTextManager()
+    {
+        return $this->container->get('grafit.text_manager');
+    }
+
     /**
      * @return InquiryManager
      */
@@ -78,7 +88,16 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $text = $this->getTextManager()->getRandomText();
+        $actualNews = $this->getNewsManager()->findActualNews();
+        $news = $this->getNewsManager()->findLastTwoNews();
+        $services = $this->getServiceManager()->findLastTreeStoritve();
+
+        return array( 'text' => $text,
+                      'actualNews' => $actualNews,
+                      'news' => $news,
+                      'services' => $services
+         );
     }
     
     /**
@@ -98,7 +117,7 @@ class DefaultController extends Controller
     {
         $news = $this->getNewsManager()->findAllNews();
 
-        return array( 'news' => $news);
+        return array( 'news' => $news );
     }
 
     /**
@@ -125,9 +144,6 @@ class DefaultController extends Controller
         $categorys = $this->getCategoryManager()->findAllCategorys();
         $articles = $this->getArticleManager()->findArticlesByCategoryId($id);
         
-        if (!$articles) {
-            throw new NotFoundHttpException("ni izdelkov za to kategorijo.");
-        }
         return array('articles' => $articles, 'categorys' => $categorys);
     }
 

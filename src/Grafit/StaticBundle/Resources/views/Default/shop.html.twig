@@ -4,14 +4,14 @@
 
 {% block content %}
 <h1 class="title title-color">{% trans %}Trgovina{% endtrans %}</h1>
-<ul>
+<ul class="my-category-menu">
 {% for item in categorys %}
-    <li><a href="{{ path('_category_article', ({'id': item.id}) ) }}">{{ item.name }}</a></li>
+    <li><a style="text-decoration: none; color: black;" href="{{ path('_category_article', ({'id': item.id}) ) }}">{{ item.name }}</a></li>
 {% endfor %}
 </ul>
 {% if articles is not empty %}    
     {% for item in articles %}
-        <table class="table">
+        <table class="shop-table">
             <tr>
                 <td style="width: 80%; padding-left: 45px;">
                     <h2>{{ item.name}}</h2>

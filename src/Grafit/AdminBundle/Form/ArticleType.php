@@ -16,7 +16,7 @@ class ArticleType extends AbstractType
                 'label' => 'Naslov novice'
             ))
             ->add('status', 'choice', array(
-                'choices' => array('Actual' => 'Aktualna novica', 'News' => 'Novica'),
+                'choices' => array('Actual' => 'Aktualni izdelek', 'Normal' => 'Navaden'),
                 'preferred_choices' => array('baz'),
                 'label' => 'Status'
             ))

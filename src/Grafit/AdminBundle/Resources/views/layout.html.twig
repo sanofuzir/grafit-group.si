@@ -21,57 +21,67 @@
     <style>
         @font-face
         {
-            font-family: Adobe;
-            src: url('{{ asset('bundles/static/Font/Adobe_Caslon Pro.ttf') }}');
-        }
-        body, h2, .title {
-        font-family: Adobe;
+            font-family: Bebas;
+            src: url('{{ asset('bundles/static/Font/BebasNeue.otf') }}');
         }
      </style>
   </head>
 
   <body>
-
-    <div class="navbar navbar-fixed-top" style="height: 60px; background-color: black;">
+    <div class="navbar navbar-fixed-top" style="height: 250px; background: white url('{{ asset('bundles/static/Font/backgroud.jpg') }}') repeat-y; ">
       <div class="navbar-inner">
         <div class="container" style="margin-top: 10px;">
-            <div class="flags" style="position: relative; margin: -10px auto 0 auto; width: 57%;">
-                <a href="{{ path('home', {"_locale": "en"}) }}" style="margin-left: -40px;">
+          <div class="flags">
+                <a href="{{ path('home', {"_locale": "en"}) }}">
                     <img src="{{ asset('bundles/static/images/en.gif') }}" alt="eng">
                 </a>
                 <a href="{{ path('home', {"_locale": "sl"}) }}">
                     <img src="{{ asset('bundles/static/images/sl.jpg') }}" alt="slo">
                 </a>
             </div>
-            
-            <ul class="nav nav2" style="margin: -5px 0 0 30px;">
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center; margin-left: -20px;">
-                  <a style="color: #c6c8c9;" href="{{ path('home') }}"><span class="main-menu-title">{% trans %}Domov{% endtrans %}</span></a>
+          <div class="my-top-meni">
+            <div>
+              <img src="{{ asset('bundles/static/images/LOGO.jpg') }}" style="width: 150%;"/>
+            </div>
+            <div style="float: right;">
+              <form name="cse" id="searchbox_demo" action="http://www.google.com/cse">
+                <input type="hidden" name="cref" value="" />
+                <input type="hidden" name="ie" value="utf-8" />
+                <input type="hidden" name="hl" value="" />
+                <input name="q" type="text" size="20" />
+                <input class="my-button" type="submit" name="search" value="Search" />
+              </form>
+            </div>
+          </div>
+           
+           <div class="my-meni-labels"> 
+            <ul class="nav nav2" style="margin: -5px 0 0 20px;">
+              <li style="float: left; list-style-type: none; text-align: center; margin-left: -20px; background-color: #5DC13B;">
+                  <a style="color: #c6c8c9;" href="{{ path('home') }}"><span class="main-menu-title" style="color: white; margin-left: -20px;">{% trans %}Domov{% endtrans %}</span></a>
               </li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center; margin-left: -20px;">
+              <li style="float: left; width: list-style-type: none; text-align: center; margin-left: -20px; border-left: none;">
+                  <a style="color: #c6c8c9;" href="{{ path('_about') }}"><span class="main-menu-title">{% trans %}O nas{% endtrans %}</span></a>
+              </li>
+              <li style="float: left; width: list-style-type: none; text-align: center; margin-left: -20px;">
                   <a style="color: #c6c8c9;" href="{{ path('_news') }}"><span class="main-menu-title">{% trans %}Novice{% endtrans %}</span></a>
               </li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center; margin-left: -20px;">
+              <li style="float: left; width: list-style-type: none; text-align: center; margin-left: -20px;">
                   <a style="color: #c6c8c9;" href="{{ path('_shop') }}"><span class="main-menu-title">{% trans %}Trgovina{% endtrans %}</span></a>
               </li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center; margin-left: -20px;">
+              <li style="float: left; width: list-style-type: none; text-align: center; margin-left: -20px;">
                   <a style="color: #c6c8c9;" href="{{ path('_services') }}"><span class="main-menu-title">{% trans %}Storitve{% endtrans %}</span></a>
               </li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center; margin-left: -20px;">
+              <li style="float: left; width: list-style-type: none; text-align: center; margin-left: -20px;">
                   <a style="color: #c6c8c9;" href="{{ path('_galery') }}"><span class="main-menu-title">{% trans %}Galerija{% endtrans %}</span></a>
               </li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center; margin-left: -20px;">
+              <li style="float: left; width: list-style-type: none; text-align: center; margin-left: -20px;">
                   <a style="color: #c6c8c9;" href="{{ path('_contact') }}"><span class="main-menu-title">{% trans %}Kontakt{% endtrans %}</span></a>
               </li>
             </ul>
+          </div>
         </div>
       </div>
     </div>
-    <div>
-      <h2 style="margin-top: 100px;" class="main-title">
-        <a href="{{ path('_admin') }}">Admin: Nadzorna Plošča</a>
-      </h2>
-      </div>
     <div class="container">
       {% for type, messages in app.session.flashbag.all() %}
           {% for message in messages %}

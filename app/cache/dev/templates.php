@@ -87,6 +87,7 @@
   'StaticBundle:Default:shop.html.twig' => '/Users/sanofuzir/Sites/grafit-group/src/Grafit/StaticBundle/Resources/views/Default/shop.html.twig',
   'StaticBundle:Default:singleArticle.html.twig' => '/Users/sanofuzir/Sites/grafit-group/src/Grafit/StaticBundle/Resources/views/Default/singleArticle.html.twig',
   'StaticBundle:Default:singleNews.html.twig' => '/Users/sanofuzir/Sites/grafit-group/src/Grafit/StaticBundle/Resources/views/Default/singleNews.html.twig',
+  'StaticBundle:Email:email.html.twig' => '/Users/sanofuzir/Sites/grafit-group/src/Grafit/StaticBundle/Resources/views/Email/email.html.twig',
   'StaticBundle::layout.html.twig' => '/Users/sanofuzir/Sites/grafit-group/src/Grafit/StaticBundle/Resources/views/layout.html.twig',
   'UserBundle:Registration:register.html.twig' => '/Users/sanofuzir/Sites/grafit-group/src/Grafit/UserBundle/Resources/views/Registration/register.html.twig',
   'UserBundle:Security:login.html.twig' => '/Users/sanofuzir/Sites/grafit-group/src/Grafit/UserBundle/Resources/views/Security/login.html.twig',
