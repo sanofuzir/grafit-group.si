@@ -13,7 +13,7 @@ class ArticleType extends AbstractType
         $builder
             ->add('name','textarea', array(
                 'attr'  => array('class' => 'span2', 'rows' => 3, 'cols'=>71),
-                'label' => 'Naslov novice'
+                'label' => 'Naziv izdelka'
             ))
             ->add('status', 'choice', array(
                 'choices' => array('Actual' => 'Aktualni izdelek', 'Normal' => 'Navaden'),
@@ -28,7 +28,7 @@ class ArticleType extends AbstractType
             ))
             ->add('text', 'textarea', array(
                 'attr'  => array('class' => 'span2', 'rows' => 15, 'cols'=>80),
-                'label' => 'Novica'
+                'label' => 'Opis izdelka'
             ))
             ->add('file', 'file', array(
                 'attr'  => array('class' => 'span2'),

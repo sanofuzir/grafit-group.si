@@ -36,18 +36,19 @@ class __TwigTemplate_900dcb59f188aa4096a755e901f3116b2d6116143b58cb47a3743720bac
     {
         // line 6
         echo "
-<div class=\"center index-style\">
+<div class=\"center index-style\" style=\"border: 1px solid #F2F2F2; width: 99.5%;\">
 \t<img src=\"";
         // line 8
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/index.jpg"), "html", null, true);
         echo "\"/>
 </div>
 
+<!--
 <div class=\"texti-index\">
 \t";
-        // line 12
+        // line 13
         if ((!twig_test_empty((isset($context["text"]) ? $context["text"] : $this->getContext($context, "text"))))) {
-            // line 13
+            // line 14
             echo "\t<p class=\"main-menu-title\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["text"]) ? $context["text"] : $this->getContext($context, "text")), "text"), "html", null, true);
             echo "</p>
@@ -64,94 +65,94 @@ class __TwigTemplate_900dcb59f188aa4096a755e901f3116b2d6116143b58cb47a3743720bac
 \t</div>
 \t";
         }
-        // line 26
+        // line 27
         echo "</div>
-
-<div class=\"oglasi\">
+!-->
+<div class=\"oglasi\" style=\"width: 99.6%;\">
 \t<div>
-\t\t<p class=\"main-menu-title\" style=\"color: white;\">";
-        // line 30
-        echo $this->env->getExtension('translator')->getTranslator()->trans("Potrebujete novo reklamno tablo?", array(), "messages");
+\t\t<p class=\"main-menu-title main-menu-title-labels\" style=\"color: white;\">";
+        // line 31
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Potrebujete novo <br> reklamno tablo?", array(), "messages");
         echo "</p>
 \t</div>
 \t<div style=\"background-color: #6FC851;\">
-\t\t<p class=\"main-menu-title\" style=\"color: white;\">";
-        // line 33
-        echo $this->env->getExtension('translator')->getTranslator()->trans("Želite, da je vaš jekleni konjiček nekaj posebnega?", array(), "messages");
+\t\t<p class=\"main-menu-title main-menu-title-labels\" style=\"color: white;\">";
+        // line 34
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Želite, da je vaš jekleni <br> konjiček nekaj posebnega?", array(), "messages");
         echo "</p>
 \t</div>
 \t<div style=\"background-color: #93D67C;\">
-\t\t<p class=\"main-menu-title\" style=\"color: white;\">";
-        // line 36
-        echo $this->env->getExtension('translator')->getTranslator()->trans("Potrebujete novo grafično podobo?", array(), "messages");
+\t\t<p class=\"main-menu-title main-menu-title-labels\" style=\"color: white;\">";
+        // line 37
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Potrebujete novo <br> grafično podobo?", array(), "messages");
         echo "</p>
 \t</div>
 </div>
 <table style=\"margin-top: 120px;\" id=\"index-table\">
 \t<tr>
-\t\t<td style=\"vertical-align: text-top; width: 60%;\">
+\t\t<td style=\"vertical-align: text-top; width: 60%; text-align: justify; padding-right: 80px;\">
 \t\t";
-        // line 42
+        // line 43
         if ((!twig_test_empty((isset($context["actualNews"]) ? $context["actualNews"] : $this->getContext($context, "actualNews"))))) {
-            // line 43
-            echo "\t\t\t<h2>";
+            // line 44
+            echo "\t\t\t<h2 style=\"color: #5DC13B;\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["actualNews"]) ? $context["actualNews"] : $this->getContext($context, "actualNews")), "name"), "html", null, true);
             echo "</h2>
 \t\t\t";
-            // line 44
+            // line 45
             if ((!twig_test_empty($this->getAttribute((isset($context["actualNews"]) ? $context["actualNews"] : $this->getContext($context, "actualNews")), "path")))) {
-                // line 45
+                // line 46
                 echo "\t\t\t\t<img src=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("news/"), "html", null, true);
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["actualNews"]) ? $context["actualNews"] : $this->getContext($context, "actualNews")), "path"), "html", null, true);
-                echo "\" alt=\"slika\" style=\"width: 150px; height: 150px; padding: 10px;\" align=\"left\"/>
+                echo "\" alt=\"slika\" style=\"width: 200px; max-height: 250px; padding: 10px 10px 10px 0px;\" align=\"left\"/>
 \t\t\t";
             }
-            // line 47
+            // line 48
             echo "\t\t\t<p>";
             echo twig_escape_filter($this->env, (((twig_length_filter($this->env, $this->getAttribute((isset($context["actualNews"]) ? $context["actualNews"] : $this->getContext($context, "actualNews")), "text")) > 800)) ? ((twig_slice($this->env, $this->getAttribute((isset($context["actualNews"]) ? $context["actualNews"] : $this->getContext($context, "actualNews")), "text"), 0, 800) . "...")) : ($this->getAttribute((isset($context["actualNews"]) ? $context["actualNews"] : $this->getContext($context, "actualNews")), "text"))), "html", null, true);
             echo "</p>
 \t\t\t<a href=\"";
-            // line 48
+            // line 49
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_single_news", array("id" => $this->getAttribute((isset($context["actualNews"]) ? $context["actualNews"] : $this->getContext($context, "actualNews")), "id"))), "html", null, true);
-            echo "\" >";
+            echo "\" style=\"color: #5DC13B; margin-top: 10px;\" >";
             echo $this->env->getExtension('translator')->getTranslator()->trans("Več", array(), "messages");
             echo "...&raquo;</a>
 \t\t";
         }
-        // line 50
+        // line 51
         echo "\t\t</td>
-\t\t<td style=\"border-left: 1px solid #FCFCFC;\">
+\t\t<td style=\"border-left: 1px solid #A7A9AB; text-align: justify; padding-left: 40px;\">
 \t\t\t";
-        // line 52
+        // line 53
         if ((!twig_test_empty((isset($context["news"]) ? $context["news"] : $this->getContext($context, "news"))))) {
-            // line 53
+            // line 54
             echo "\t\t\t";
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["news"]) ? $context["news"] : $this->getContext($context, "news")));
             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                // line 54
-                echo "\t\t\t\t<h2>";
+                // line 55
+                echo "\t\t\t\t<h2 style=\"color: #5DC13B;\">";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "name"), "html", null, true);
                 echo "</h2>
 \t\t\t\t";
-                // line 55
+                // line 56
                 if ((!twig_test_empty($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "path")))) {
-                    // line 56
+                    // line 57
                     echo "\t\t\t\t\t<img src=\"";
                     echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("news/"), "html", null, true);
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "path"), "html", null, true);
-                    echo "\" alt=\"slika\" style=\"width: 150px; height: 150px; padding: 10px;\" align=\"left\"/>
+                    echo "\" alt=\"slika\" style=\"width: 150px; height: 150px; padding: 10px 10px 10px 0px;\" align=\"left\"/>
 \t\t\t\t";
                 }
-                // line 58
+                // line 59
                 echo "\t\t\t\t<p>";
                 echo twig_escape_filter($this->env, (((twig_length_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text")) > 250)) ? ((twig_slice($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text"), 0, 250) . "...")) : ($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text"))), "html", null, true);
                 echo "</p>
 \t\t\t\t<a href=\"";
-                // line 59
+                // line 60
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_single_news", array("id" => $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "id"))), "html", null, true);
-                echo "\" >";
+                echo "\" style=\"color: #5DC13B;\">";
                 echo $this->env->getExtension('translator')->getTranslator()->trans("Več", array(), "messages");
                 echo "...&raquo;</a>
 \t\t\t";
@@ -159,16 +160,15 @@ class __TwigTemplate_900dcb59f188aa4096a755e901f3116b2d6116143b58cb47a3743720bac
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 61
+            // line 62
             echo "\t\t";
         }
-        // line 62
+        // line 63
         echo "\t\t</td>
 \t</tr>
 </table>
 
-
-
+<hr>
 <div class=\"index-storitve\">
 \t";
         // line 69
@@ -179,8 +179,8 @@ class __TwigTemplate_900dcb59f188aa4096a755e901f3116b2d6116143b58cb47a3743720bac
             $context['_seq'] = twig_ensure_traversable((isset($context["services"]) ? $context["services"] : $this->getContext($context, "services")));
             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
                 // line 71
-                echo "\t\t<div>
-\t\t\t<h2>";
+                echo "\t\t<div style=\"padding: 0 10px;\">
+\t\t\t<h2 style=\"color: #5DC13B;\">";
                 // line 72
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "name"), "html", null, true);
                 echo "</h2>
@@ -191,17 +191,17 @@ class __TwigTemplate_900dcb59f188aa4096a755e901f3116b2d6116143b58cb47a3743720bac
                     echo "\t\t\t\t<img src=\"";
                     echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("storitve/"), "html", null, true);
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "path"), "html", null, true);
-                    echo "\" alt=\"slika\" style=\"width: 150px; height: 150px; padding: 10px;\" align=\"left\"/>
+                    echo "\" alt=\"slika\" style=\"width: 150px; max-height: 150px; padding: 10px 10px 10px 0px;\" align=\"left\"/>
 \t\t\t";
                 }
                 // line 76
-                echo "\t\t\t<p>";
+                echo "\t\t\t<p style=\"text-align: justify; font-size: .8em;\">";
                 echo twig_escape_filter($this->env, (((twig_length_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text")) > 450)) ? ((twig_slice($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text"), 0, 450) . "...")) : ($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text"))), "html", null, true);
                 echo "</p>
 \t\t\t<a href=\"";
                 // line 77
                 echo $this->env->getExtension('routing')->getPath("_services");
-                echo "\" >";
+                echo "\" style=\"color: #5DC13B;\">";
                 echo $this->env->getExtension('translator')->getTranslator()->trans("Več", array(), "messages");
                 echo "...&raquo;</a>
 \t\t</div>
@@ -215,7 +215,9 @@ class __TwigTemplate_900dcb59f188aa4096a755e901f3116b2d6116143b58cb47a3743720bac
         }
         // line 81
         echo "</div>
-
+<p style=\"margin-top: 380px; float: none; position: relative;\">&nbsp;</p>
+<hr>
+<br>
 ";
     }
 
@@ -231,6 +233,6 @@ class __TwigTemplate_900dcb59f188aa4096a755e901f3116b2d6116143b58cb47a3743720bac
 
     public function getDebugInfo()
     {
-        return array (  217 => 81,  214 => 80,  203 => 77,  198 => 76,  191 => 74,  189 => 73,  185 => 72,  182 => 71,  177 => 70,  175 => 69,  166 => 62,  163 => 61,  153 => 59,  148 => 58,  141 => 56,  139 => 55,  134 => 54,  129 => 53,  127 => 52,  123 => 50,  116 => 48,  111 => 47,  104 => 45,  102 => 44,  97 => 43,  95 => 42,  86 => 36,  80 => 33,  74 => 30,  68 => 26,  51 => 13,  49 => 12,  42 => 8,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  217 => 81,  214 => 80,  203 => 77,  198 => 76,  191 => 74,  189 => 73,  185 => 72,  182 => 71,  177 => 70,  175 => 69,  167 => 63,  164 => 62,  154 => 60,  149 => 59,  142 => 57,  140 => 56,  135 => 55,  130 => 54,  128 => 53,  124 => 51,  117 => 49,  112 => 48,  105 => 46,  103 => 45,  98 => 44,  96 => 43,  87 => 37,  81 => 34,  75 => 31,  69 => 27,  52 => 14,  50 => 13,  42 => 8,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

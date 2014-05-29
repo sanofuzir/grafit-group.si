@@ -7526,8 +7526,9 @@ root {
 }
 body {
     background-color: #FFFFFF;
-    color: black;
+    color: #A7A9AB;
     font-size: 18px;
+    font-family: Gothic;
 }
 h1, h2, .title {
     font-family: Bebas;
@@ -7535,11 +7536,21 @@ h1, h2, .title {
 h3 {
     color: black;
 }
+.title-color {
+    color: #5DC13B;
+}
 .span4 {
     margin-left: 0px;
 }
 .container {
     margin-top: 280px;
+}
+
+/* Oblikovanje glavnega menija */
+
+.main-menu-title {
+    letter-spacing: 5px;
+    color: red;
 }
 .main-menu-title {
     font-size: 1.3em;
@@ -7566,8 +7577,12 @@ h3 {
 }
 .my-button {
     background-color: #5DC13B;
-    width: 50px;
+    width: 57px;
+    height: 22px;
     font-size: .6em;
+    color: white;
+    text-align: center;
+    vertical-align: text-top;
 }
 .nav li {
     border-top: 1px solid #F2F2F2;
@@ -7593,12 +7608,17 @@ h3 {
 #color a:link, #color a:visited{
     color: #c6c8c9;
 }
+
+/* Index page */
 .index-item {
     border: 1px solid red; 
     width: 30%; 
     min-height: 400px; 
     height: 100%;
     float: left;
+}
+.main-menu-title-labels {
+    letter-spacing: 3px;
 }
 .border {
     border: 1px solid black;
@@ -7611,7 +7631,6 @@ h3 {
 }
 .title {
     margin-top: 50px;
-    color: black;
 }
 .main-title {
     .font-size: 2em;
@@ -7702,16 +7721,16 @@ h3 {
     width: 33.3%;
     height: 100px;
     float: left;
-    text-align: center;
+    padding: 0px 20px;
     vertical-align: middle;
     color: white;
-    font-size: 2.em;
-    padding-top: 20px;
+    font-size: 1.1em;
+    padding-top: 25px;
+}
+.main-menu-title-labels {
+    line-height: 98%;
 }
 /* Novice */
-h2 {
-    color: black;
-}
 #index-table td {
     padding: 20px;
 }

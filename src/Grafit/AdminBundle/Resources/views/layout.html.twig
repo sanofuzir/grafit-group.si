@@ -28,7 +28,7 @@
   </head>
 
   <body>
-    <div class="navbar navbar-fixed-top" style="height: 250px; background: white url('{{ asset('bundles/static/Font/backgroud.jpg') }}') repeat-y; ">
+    <div class="navbar navbar-fixed-top" style="height: 350px; background: white url('{{ asset('bundles/static/images/backgroud.jpg') }}') repeat-y; ">
       <div class="navbar-inner">
         <div class="container" style="margin-top: 10px;">
           <div class="flags">
@@ -78,6 +78,11 @@
                   <a style="color: #c6c8c9;" href="{{ path('_contact') }}"><span class="main-menu-title">{% trans %}Kontakt{% endtrans %}</span></a>
               </li>
             </ul>
+          </div>
+          <div style="margin-top: 30px;">
+            <p style="text-align: center;">
+              <a style="text-decoration: none;" href="{{ path('_admin') }}"><span style="color: black; font-size: 2.5em;">Admin Control Panel</span></a>
+            </p>
           </div>
         </div>
       </div>

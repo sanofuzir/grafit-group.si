@@ -4,6 +4,7 @@
 
 {% block content %}
 <h1 class="title title-color">{% trans %}Trgovina{% endtrans %}</h1>
+<hr>
 <ul class="my-category-menu">
 {% for item in categorys %}
     <li><a style="text-decoration: none; color: black;" href="{{ path('_category_article', ({'id': item.id}) ) }}">{{ item.name }}</a></li>
@@ -18,7 +19,7 @@
                     {{ item.text|length > 450 ? item.text|slice(0, 450) ~ '...' : item.text }}
                     <br />
                     <p class="link">
-                        <a href="{{ path('_single_article', ({'id': item.id}) ) }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
+                        <a href="{{ path('_single_article', ({'id': item.id}) ) }}" style="color: #5DC13B;" >{% trans %}Več{% endtrans %}...&raquo;</a>
                     </p>
                     <p>{{ item.status }}</p>
                     <p><strong>{{ item.created|date('d.m.Y')}}</strong></p>

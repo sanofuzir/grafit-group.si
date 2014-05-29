@@ -4,10 +4,11 @@
 
 {% block content %}
 
-<div class="center index-style">
+<div class="center index-style" style="border: 1px solid #F2F2F2; width: 99.5%;">
 	<img src="{{ asset('bundles/static/images/index.jpg') }}"/>
 </div>
 
+<!--
 <div class="texti-index">
 	{% if text is not empty %}
 	<p class="main-menu-title">{{ text.text }}</p>
@@ -24,60 +25,61 @@
 	</div>
 	{% endif %}
 </div>
-
-<div class="oglasi">
+!-->
+<div class="oglasi" style="width: 99.6%;">
 	<div>
-		<p class="main-menu-title" style="color: white;">{% trans %}Potrebujete novo reklamno tablo?{% endtrans %}</p>
+		<p class="main-menu-title main-menu-title-labels" style="color: white;">{% trans %}Potrebujete novo <br> reklamno tablo?{% endtrans %}</p>
 	</div>
 	<div style="background-color: #6FC851;">
-		<p class="main-menu-title" style="color: white;">{% trans %}Želite, da je vaš jekleni konjiček nekaj posebnega?{% endtrans %}</p>
+		<p class="main-menu-title main-menu-title-labels" style="color: white;">{% trans %}Želite, da je vaš jekleni <br> konjiček nekaj posebnega?{% endtrans %}</p>
 	</div>
 	<div style="background-color: #93D67C;">
-		<p class="main-menu-title" style="color: white;">{% trans %}Potrebujete novo grafično podobo?{% endtrans %}</p>
+		<p class="main-menu-title main-menu-title-labels" style="color: white;">{% trans %}Potrebujete novo <br> grafično podobo?{% endtrans %}</p>
 	</div>
 </div>
 <table style="margin-top: 120px;" id="index-table">
 	<tr>
-		<td style="vertical-align: text-top; width: 60%;">
+		<td style="vertical-align: text-top; width: 60%; text-align: justify; padding-right: 80px;">
 		{% if actualNews is not empty %}
-			<h2>{{ actualNews.name }}</h2>
+			<h2 style="color: #5DC13B;">{{ actualNews.name }}</h2>
 			{% if actualNews.path is not empty %}
-				<img src="{{ asset('news/')}}{{ actualNews.path }}" alt="slika" style="width: 150px; height: 150px; padding: 10px;" align="left"/>
+				<img src="{{ asset('news/')}}{{ actualNews.path }}" alt="slika" style="width: 200px; max-height: 250px; padding: 10px 10px 10px 0px;" align="left"/>
 			{% endif %}
 			<p>{{ actualNews.text|length > 800 ? actualNews.text|slice(0, 800) ~ '...' : actualNews.text }}</p>
-			<a href="{{ path('_single_news', ({'id': actualNews.id}) ) }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
+			<a href="{{ path('_single_news', ({'id': actualNews.id}) ) }}" style="color: #5DC13B; margin-top: 10px;" >{% trans %}Več{% endtrans %}...&raquo;</a>
 		{% endif %}
 		</td>
-		<td style="border-left: 1px solid #FCFCFC;">
+		<td style="border-left: 1px solid #A7A9AB; text-align: justify; padding-left: 40px;">
 			{% if news is not empty %}
 			{% for item in news %}
-				<h2>{{ item.name }}</h2>
+				<h2 style="color: #5DC13B;">{{ item.name }}</h2>
 				{% if item.path is not empty %}
-					<img src="{{ asset('news/')}}{{ item.path }}" alt="slika" style="width: 150px; height: 150px; padding: 10px;" align="left"/>
+					<img src="{{ asset('news/')}}{{ item.path }}" alt="slika" style="width: 150px; height: 150px; padding: 10px 10px 10px 0px;" align="left"/>
 				{% endif %}
 				<p>{{ item.text|length > 250 ? item.text|slice(0, 250) ~ '...' : item.text }}</p>
-				<a href="{{ path('_single_news', ({'id': item.id}) ) }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
+				<a href="{{ path('_single_news', ({'id': item.id}) ) }}" style="color: #5DC13B;">{% trans %}Več{% endtrans %}...&raquo;</a>
 			{% endfor %}
 		{% endif %}
 		</td>
 	</tr>
 </table>
 
-
-
+<hr>
 <div class="index-storitve">
 	{% if services is not empty %}
 	{% for item in services %}
-		<div>
-			<h2>{{ item.name }}</h2>
+		<div style="padding: 0 10px;">
+			<h2 style="color: #5DC13B;">{{ item.name }}</h2>
 			{% if item.path is not empty %}
-				<img src="{{ asset('storitve/')}}{{ item.path }}" alt="slika" style="width: 150px; height: 150px; padding: 10px;" align="left"/>
+				<img src="{{ asset('storitve/')}}{{ item.path }}" alt="slika" style="width: 150px; max-height: 150px; padding: 10px 10px 10px 0px;" align="left"/>
 			{% endif %}
-			<p>{{ item.text|length > 450 ? item.text|slice(0, 450) ~ '...' : item.text }}</p>
-			<a href="{{ path('_services') }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
+			<p style="text-align: justify; font-size: .8em;">{{ item.text|length > 450 ? item.text|slice(0, 450) ~ '...' : item.text }}</p>
+			<a href="{{ path('_services') }}" style="color: #5DC13B;">{% trans %}Več{% endtrans %}...&raquo;</a>
 		</div>
 	{% endfor %}
 	{% endif %}
 </div>
-
+<p style="margin-top: 380px; float: none; position: relative;">&nbsp;</p>
+<hr>
+<br>
 {% endblock %}

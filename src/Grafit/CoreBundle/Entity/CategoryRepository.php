@@ -16,7 +16,7 @@ class CategoryRepository extends EntityRepository
     public function findAll() 
     {
         return $this->getEntityManager()
-                    ->createQuery('SELECT c FROM CoreBundle:category c ORDER BY c.name DESC')
+                    ->createQuery('SELECT c FROM CoreBundle:category c ORDER BY c.name ASC')
                     ->getResult();
     }
     

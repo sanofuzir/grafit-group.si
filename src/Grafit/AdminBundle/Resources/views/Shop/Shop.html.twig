@@ -40,6 +40,7 @@
         <th style="text-align: center;">Naslov</th>
         <th style="text-align: center;">Text</th>
         <th style="text-align: center;">Slika</th>
+        <th style="text-align: center;">Status</th>
         <th style="text-align: center;">Datum vnosa</th>
         <th>&nbsp;</th>
       </tr>
@@ -57,6 +58,7 @@
               <img src="{{ asset('article/')}}{{item.path }}" alt="slika" style="width: 50px; height: 50px;"/>
             </a>
         </td>
+        <td>{{ item.status }}</td>
         <td>{{ item.created|date('d.m.Y H:i:s')}}</td>
         <td><a href="{{ path('_admin_edit_article', {'id': item.id}) }}" title="Uredi novico">
                 <i class="icon-edit"></i>Uredi</a>&nbsp;
