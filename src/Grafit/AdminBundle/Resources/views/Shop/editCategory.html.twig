@@ -3,7 +3,7 @@
 {% block title %}Kategorije{% endblock %}
 
 {% block content %}
-<h2 style="margin-top: 50px;" class="title">Dodajanje in urejanje Kategorije</h2>
+<h2 class="admin-title">Dodajanje in urejanje Kategorije</h2>
 <form class="border category_form" action="{{ category.id ? path('_admin_edit_category', {'id': category.id}) : path('_admin_add_category') }}" method="post" {{ form_enctype(form) }} novalidate>
     {{ form_widget(form) }}
     <!--div class="form-actions"-->

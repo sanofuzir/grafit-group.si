@@ -1,0 +1,52 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}Galerija{% endtrans %}{% endblock %}
+
+{% block content %}
+<h1 class="title title-color">{% trans %}Galerija slik{% endtrans %} -> {{ album.name }}</h1>
+<hr>
+<div class="galery">
+	<div class="images">
+		{% set counter = 0 %}
+		<table style="margin-bottom: 50px;">
+			<tr>
+		{% for item in images %}
+			<td style="width: 25%; padding: 0 10px;">
+				{% set counter = counter + 1 %}
+	            <a href="{{ asset('galery/')}}{{item.path }}" data-lightbox="{{ album.name }}" data-title="{{ item.description|length > 50 ? item.description|slice(0, 50) ~ '...' : item.description }}">
+		        	<div class="images-item">
+			          	<img src="{{ asset('galery/')}}{{item.path }}" alt="slika"/>
+			          	<p>
+			          		<strong>{{ item.description|length > 50 ? item.description|slice(0, 50) ~ '...' : item.description }}</strong>
+			          		<br>
+			          		<span>{{ item.created|date('d.m.Y') }}</span>
+			          	</p>
+		          	</div>
+	            </a>
+	        </td>
+            {% if counter%4 == 0 %}
+            	</tr><tr>
+            {% endif %}
+	    {% endfor %}
+	    	</tr>
+	    </table
+	</div>
+	<div class="albumi">
+		<h2>{% trans %}Ostali albumi{% endtrans %}</h2>
+		<hr>
+		{% for item in albums %}
+		<div>
+            <a href="{{ path('_album_gallery', ({'id': item.id}) ) }}">
+            	<div class="album-small">
+	            	<img src="{{ asset('album/')}}{{item.path }}" alt="slika" />
+	            	<p>
+	            		<strong>{{ item.name|length > 50 ? item.name|slice(0, 50) ~ '...' : item.name }}</strong>
+	            	</p>
+	            	<span>{{ item.created|date('d.m.Y') }}</span>
+            	</div>
+            </a>
+        </div>
+	    {% endfor %}
+	</div>
+</div>
+{% endblock %}

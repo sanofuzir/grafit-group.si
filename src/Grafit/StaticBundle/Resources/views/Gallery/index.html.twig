@@ -1,0 +1,21 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}Galerija{% endtrans %}{% endblock %}
+
+{% block content %}
+<h1 class="title title-color">{% trans %}Galerija slik{% endtrans %}</h1>
+<hr>
+<div class="galery">
+    {% for item in albums %}
+        <a href="{{ path('_album_gallery', ({'id': item.id}) ) }}">
+        	<div class="galery-album">
+            	<img src="{{ asset('album/')}}{{item.path }}" alt="slika" class="album-img"/>
+            	<p class="album-name">
+            		<strong>{{ item.name|length > 50 ? item.name|slice(0, 50) ~ '...' : item.name }}</strong>
+            	</p>
+            	<span class="album-date">{{ item.created|date('d.m.Y') }}</span>
+        	</div>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}

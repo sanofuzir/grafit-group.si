@@ -10,8 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Grafit\CoreBundle\Entity\News;
 use Grafit\CoreBundle\Models\NewsManager;
-use Grafit\CoreBundle\Entity\Image;
-use Grafit\CoreBundle\Models\ImageManager;
 use Grafit\CoreBundle\Entity\Article;
 use Grafit\CoreBundle\Models\ArticleManager;
 use Grafit\CoreBundle\Entity\Category;
@@ -64,14 +62,6 @@ class DefaultController extends Controller
     private function getNewsManager()
     {
         return $this->container->get('grafit.news_manager');
-    }
-    
-    /**
-     * @return ImageManager
-     */
-    private function getImageManager()
-    {
-        return $this->container->get('grafit.image_manager');
     }
 
     /**
@@ -188,17 +178,6 @@ class DefaultController extends Controller
             throw new NotFoundHttpException("Novica ne obstaja.");
         }
         return array('item' => $news);
-    }
-    
-    /**
-     * @Route("/Galery", name="_galery")
-     * @Template()
-     */
-    public function galeryAction()
-    {
-        $images = $this->getImageManager()->findAllImages();
-        
-        return array('images' => $images);
     }
     
     /**

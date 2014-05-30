@@ -1,0 +1,40 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Album{% endblock %}
+
+{% block content %}
+<h2 class="admin-title">Albumi</h2>
+<a class="btn btn-small pull-right" href="{{ path('_admin_add_album') }}"><i class="icon-plus"></i> Dodaj album</a>
+<table class="table table-condensed table-hover border mytable">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Ime</th>
+      <th>Datum vnosa</th>
+      <th>Slika</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% set counter = 0 %}
+    {% for album in albums %}
+    {% set counter = counter + 1 %}
+    <tr>
+      <td>{{ album.id }}</td>
+      <td>{{ album.name }}</td>
+      <td>{{ album.created|date('d.m.Y H:i:s')}}</td>
+      <td>
+          <a href="{{ asset('album/')}}{{album.path }}" data-lightbox="galery-{{ counter}}">
+            <img style="width: 50px;" src="{{ asset('album/')}}{{album.path }}" alt="slika" width="50"/>
+          </a>
+      </td>
+      <td><a href="{{ path('_admin_edit_album', {'id': album.id}) }}" title="Uredi album">
+              <i class="icon-edit"></i>Uredi</a>&nbsp;
+              <a href="{{ path('_admin_delete_album', {'id': album.id } ) }}" class="confirmation" title="Odstrani album" data-confirmation="Ali si prepričan?">
+                  <i class="icon-trash">Izbriši</i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

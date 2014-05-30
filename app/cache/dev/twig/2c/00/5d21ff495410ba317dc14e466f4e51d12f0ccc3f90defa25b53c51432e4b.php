@@ -35,7 +35,7 @@ class __TwigTemplate_2c005d21ff495410ba317dc14e466f4e51d12f0ccc3f90defa25b53c514
     public function block_content($context, array $blocks = array())
     {
         // line 6
-        echo "<h2 style=\"margin-top: 50px;\" class=\"title\">Dodajanje in urejanje novic</h2>
+        echo "<h2 style=\"margin-top: 50px;\" class=\"admin-title\">Dodajanje in urejanje novic</h2>
 <form class=\"border news_form\" action=\"";
         // line 7
         echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["news"]) ? $context["news"] : $this->getContext($context, "news")), "id")) ? ($this->env->getExtension('routing')->getPath("_admin_edit_news", array("id" => $this->getAttribute((isset($context["news"]) ? $context["news"] : $this->getContext($context, "news")), "id")))) : ($this->env->getExtension('routing')->getPath("_admin_add_news"))), "html", null, true);

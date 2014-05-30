@@ -18,4 +18,12 @@ class ImageRepository extends EntityRepository
                     ->createQuery('SELECT i FROM CoreBundle:image i ORDER BY i.created DESC')
                     ->getResult();
     }
+
+    public function findByAlbumId($id)
+    {
+    	return $this->getEntityManager()
+                    ->createQuery('SELECT i FROM CoreBundle:image i WHERE i.album = :id ORDER BY i.created DESC')
+                    ->setParameter('id', $id)
+                    ->getResult();
+    }
 }

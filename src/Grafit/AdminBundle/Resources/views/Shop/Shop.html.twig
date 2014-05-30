@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="shop" style="width: 25%;">
-  <h2>Kategorije</h2>
+  <h2 class="admin-title">Kategorije</h2>
   <a class="btn btn-small pull-right" href="{{ path('_admin_add_category') }}"><i class="icon-plus"></i> Dodaj Kategorijo</a>
   <table class="table table-condensed table-hover border mytable">
     <thead>
@@ -41,6 +41,7 @@
         <th style="text-align: center;">Text</th>
         <th style="text-align: center;">Slika</th>
         <th style="text-align: center;">Status</th>
+        <th style="text-align: center;">Kategorija</th>
         <th style="text-align: center;">Datum vnosa</th>
         <th>&nbsp;</th>
       </tr>
@@ -59,6 +60,10 @@
             </a>
         </td>
         <td>{{ item.status }}</td>
+        {% if item.category is not empty %}
+          {% set category=item.category %}
+          <td>{{ category.name }}</td>
+        {% endif %}
         <td>{{ item.created|date('d.m.Y H:i:s')}}</td>
         <td><a href="{{ path('_admin_edit_article', {'id': item.id}) }}" title="Uredi novico">
                 <i class="icon-edit"></i>Uredi</a>&nbsp;

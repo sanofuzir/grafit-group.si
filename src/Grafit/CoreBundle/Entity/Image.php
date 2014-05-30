@@ -62,6 +62,13 @@ class Image
     * @ORM\Column(type="text", nullable=true)
     */
     protected $description;
+
+    /**
+     * @var Album
+     *
+     * @ORM\ManyToOne(targetEntity="Album")
+     */
+    protected $album;
     
     public function __construct() {
         $this->created = new \DateTime('now');
@@ -248,6 +255,29 @@ class Image
         if ($file = $this->getAbsolutePath()) {
             unlink($file);
         }
+    }
+
+    /**
+     * Set album
+     *
+     * @param Album $album
+     * @return Image
+     */
+    public function setAlbum(Album $album = null)
+    {
+        $this->album = $album;
+
+        return $this;
+    }
+
+    /**
+     * Get album
+     *
+     * @return Album
+     */
+    public function getAlbum()
+    {
+        return $this->album;
     }
 
 }

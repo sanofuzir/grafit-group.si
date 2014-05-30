@@ -533,6 +533,8 @@
     <parameter key="grafit.category_manager.class">Grafit\CoreBundle\Models\CategoryManager</parameter>
     <parameter key="grafit.entity.inquiry.class">Grafit\CoreBundle\Entity\Inquiry</parameter>
     <parameter key="grafit.inquiry_manager.class">Grafit\CoreBundle\Models\InquiryManager</parameter>
+    <parameter key="grafit.entity.album.class">Grafit\CoreBundle\Entity\Album</parameter>
+    <parameter key="grafit.album_manager.class">Grafit\CoreBundle\Models\AlbumManager</parameter>
     <parameter key="fos_user.backend_type_orm">true</parameter>
     <parameter key="fos_user.security.interactive_login_listener.class">FOS\UserBundle\EventListener\LastLoginListener</parameter>
     <parameter key="fos_user.security.login_manager.class">FOS\UserBundle\Security\LoginManager</parameter>
@@ -2925,7 +2927,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>537e7026a2bb0</argument>
+            <argument>5387ce1eb2eb8</argument>
           </service>
         </argument>
       </argument>
@@ -3195,7 +3197,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>537e7026a2bb0</argument>
+            <argument>5387ce1eb2eb8</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3904,6 +3906,10 @@
       </argument>
       <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
+    </service>
+    <service id="grafit.album_manager" class="Grafit\CoreBundle\Models\AlbumManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>Grafit\CoreBundle\Entity\Album</argument>
     </service>
     <service id="grafit.storitve_manager" class="Grafit\CoreBundle\Models\StoritveManager">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>

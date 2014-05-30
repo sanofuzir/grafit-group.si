@@ -84,7 +84,7 @@ class __TwigTemplate_132307d66ff1e63192100d044432df6423be95efec840c94d16a5a522f8
   </head>
 
   <body>
-    <div class=\"navbar navbar-fixed-top\" style=\"height: 350px; background: white url('";
+    <div class=\"navbar navbar-fixed-top\" style=\"height: 500px; background: white url('";
         // line 31
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/backgroud.jpg"), "html", null, true);
         echo "') repeat-y; \">

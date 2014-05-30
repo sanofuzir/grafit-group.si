@@ -3,7 +3,7 @@
 {% block title %}Izdelki{% endblock %}
 
 {% block content %}
-<h2 style="margin-top: 50px;" class="title">Dodajanje in urejanje Artiklov</h2>
+<h2 class="admin-title">Dodajanje in urejanje Artiklov</h2>
 <form class="border artice_form" action="{{ article.id ? path('_admin_edit_article', {'id': article.id}) : path('_admin_add_article') }}" method="post" {{ form_enctype(form) }} novalidate>
     {{ form_widget(form) }}
     <!--div class="form-actions"-->

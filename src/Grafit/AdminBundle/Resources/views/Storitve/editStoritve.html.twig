@@ -3,7 +3,7 @@
 {% block title %}Storitve{% endblock %}
 
 {% block content %}
-<h2 style="margin-top: 50px;" class="title">Dodajanje in urejanje storitev</h2>
+<h2 class="admin-title">Dodajanje in urejanje storitev</h2>
 <form class="border storitve_form" action="{{ items.id ? path('_admin_edit_storitve', {'id': items.id}) : path('_admin_add_storitve') }}" method="post" {{ form_enctype(form) }} novalidate>
     {{ form_widget(form) }}
     <!--div class="form-actions"-->

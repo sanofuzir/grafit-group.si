@@ -35,7 +35,7 @@ class __TwigTemplate_474246d19324b167d1ade85fcb3b64d7a467f965540823cbee11de02bdf
     public function block_content($context, array $blocks = array())
     {
         // line 6
-        echo "<h2 class=\"title\" style=\"margin-top: 150px;\">Urejanje, spreminjanje spletne strani</h2>
+        echo "<h2 class=\"admin-title\" style=\"margin-top: 150px;\">Urejanje, spreminjanje spletne strani</h2>
 
 <section>
     <div class=\"border admin-panel\">
@@ -54,7 +54,7 @@ class __TwigTemplate_474246d19324b167d1ade85fcb3b64d7a467f965540823cbee11de02bdf
         <div class=\"admin-panel-category\">
             <a href=\"";
         // line 17
-        echo $this->env->getExtension('routing')->getPath("_admin_images");
+        echo $this->env->getExtension('routing')->getPath("_admin_gallery");
         echo "\">Urejanje Galerije slik</a>
         </div>
         <div class=\"admin-panel-category\">

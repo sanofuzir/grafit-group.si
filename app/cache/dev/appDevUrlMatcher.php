@@ -210,51 +210,76 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => '_admin',);
             }
 
-            if (0 === strpos($pathinfo, '/admin/i')) {
-                if (0 === strpos($pathinfo, '/admin/image')) {
-                    // _admin_images
-                    if ($pathinfo === '/admin/images') {
-                        return array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::imagesAction',  '_route' => '_admin_images',);
-                    }
+            // _admin_images
+            if ($pathinfo === '/admin/images') {
+                return array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::imagesAction',  '_route' => '_admin_images',);
+            }
 
-                    // _admin_delete_image
-                    if (0 === strpos($pathinfo, '/admin/image/delete') && preg_match('#^/admin/image/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_image')), array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::deleteImageAction',));
-                    }
+            // _admin_albums
+            if ($pathinfo === '/admin/albums') {
+                return array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::albumsAction',  '_route' => '_admin_albums',);
+            }
 
-                    // _admin_add_image
-                    if ($pathinfo === '/admin/image/add') {
-                        return array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::editImageAction',  '_route' => '_admin_add_image',);
-                    }
+            // _admin_delete_image
+            if (0 === strpos($pathinfo, '/admin/image/delete') && preg_match('#^/admin/image/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_image')), array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::deleteImageAction',));
+            }
 
-                    // _admin_edit_image
-                    if (0 === strpos($pathinfo, '/admin/image/edit') && preg_match('#^/admin/image/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_image')), array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::editImageAction',));
-                    }
+            // _admin_delete_album
+            if (0 === strpos($pathinfo, '/admin/album/delete') && preg_match('#^/admin/album/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_album')), array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::deleteAlbumAction',));
+            }
 
+            if (0 === strpos($pathinfo, '/admin/image')) {
+                // _admin_add_image
+                if ($pathinfo === '/admin/image/add') {
+                    return array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::editImageAction',  '_route' => '_admin_add_image',);
                 }
 
-                if (0 === strpos($pathinfo, '/admin/inquiry')) {
-                    // _admin_inquiry
-                    if ($pathinfo === '/admin/inquiry') {
-                        return array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\InquiryController::inquiryAction',  '_route' => '_admin_inquiry',);
-                    }
+                // _admin_edit_image
+                if (0 === strpos($pathinfo, '/admin/image/edit') && preg_match('#^/admin/image/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_image')), array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::editImageAction',));
+                }
 
-                    // _admin_delete_inquiry
-                    if (0 === strpos($pathinfo, '/admin/inquiry/delete') && preg_match('#^/admin/inquiry/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_inquiry')), array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\InquiryController::deleteInquiryAction',));
-                    }
+            }
 
-                    // _admin_add_inquiry
-                    if ($pathinfo === '/admin/inquiry/add') {
-                        return array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\InquiryController::editInquiryAction',  '_route' => '_admin_add_inquiry',);
-                    }
+            if (0 === strpos($pathinfo, '/admin/album')) {
+                // _admin_add_album
+                if ($pathinfo === '/admin/album/add') {
+                    return array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::editAlbumAction',  '_route' => '_admin_add_album',);
+                }
 
-                    // _admin_edit_inquiry
-                    if (0 === strpos($pathinfo, '/admin/inquiry/edit') && preg_match('#^/admin/inquiry/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_inquiry')), array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\InquiryController::editInquiryAction',));
-                    }
+                // _admin_edit_album
+                if (0 === strpos($pathinfo, '/admin/album/edit') && preg_match('#^/admin/album/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_album')), array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::editAlbumAction',));
+                }
 
+            }
+
+            // _admin_gallery
+            if ($pathinfo === '/admin/gallery') {
+                return array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\ImageController::galleryAction',  '_route' => '_admin_gallery',);
+            }
+
+            if (0 === strpos($pathinfo, '/admin/inquiry')) {
+                // _admin_inquiry
+                if ($pathinfo === '/admin/inquiry') {
+                    return array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\InquiryController::inquiryAction',  '_route' => '_admin_inquiry',);
+                }
+
+                // _admin_delete_inquiry
+                if (0 === strpos($pathinfo, '/admin/inquiry/delete') && preg_match('#^/admin/inquiry/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_inquiry')), array (  '_controller' => 'Grafit\\AdminBundle\\Controller\\InquiryController::deleteInquiryAction',));
+                }
+
+                // _admin_add_inquiry
+                if ($pathinfo === '/admin/inquiry/add') {
+                    return array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\InquiryController::editInquiryAction',  '_route' => '_admin_add_inquiry',);
+                }
+
+                // _admin_edit_inquiry
+                if (0 === strpos($pathinfo, '/admin/inquiry/edit') && preg_match('#^/admin/inquiry/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_inquiry')), array (  'id' => NULL,  '_controller' => 'Grafit\\AdminBundle\\Controller\\InquiryController::editInquiryAction',));
                 }
 
             }
@@ -456,11 +481,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => '_single_news')), array (  '_controller' => 'Grafit\\StaticBundle\\Controller\\DefaultController::singleNewsAction',));
         }
 
-        // _galery
-        if ($pathinfo === '/Galery') {
-            return array (  '_controller' => 'Grafit\\StaticBundle\\Controller\\DefaultController::galeryAction',  '_route' => '_galery',);
-        }
-
         // _contact
         if ($pathinfo === '/Contact') {
             return array (  '_controller' => 'Grafit\\StaticBundle\\Controller\\DefaultController::contactAction',  '_route' => '_contact',);
@@ -475,6 +495,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // _edit_inquiry
             if (0 === strpos($pathinfo, '/inquiry/edit') && preg_match('#^/inquiry/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => '_edit_inquiry')), array (  'id' => NULL,  '_controller' => 'Grafit\\StaticBundle\\Controller\\DefaultController::editInquiryAction',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/Galery')) {
+            // _galery
+            if ($pathinfo === '/Galery') {
+                return array (  '_controller' => 'Grafit\\StaticBundle\\Controller\\GalleryController::indexAction',  '_route' => '_galery',);
+            }
+
+            // _album_gallery
+            if (preg_match('#^/Galery/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_album_gallery')), array (  '_controller' => 'Grafit\\StaticBundle\\Controller\\GalleryController::galleryAction',));
             }
 
         }

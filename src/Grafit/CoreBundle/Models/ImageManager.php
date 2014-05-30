@@ -17,9 +17,23 @@ class ImageManager {
         $this->class = $class;
         $this->repository = $em->getRepository($class);
     }
+
+    /**
+    *   find all images
+    *   @return images
+    */
     public function findAllImages()
     {
         return $this->repository->findAll();
+    }
+
+    /**
+    *   find all images by album
+    *   @param int id
+    */
+    public function findByAlbumId($id) 
+    {   
+        return $this->repository->findByAlbumId($id);
     }
 
     /**

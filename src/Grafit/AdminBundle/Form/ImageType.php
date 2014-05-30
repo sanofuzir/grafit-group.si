@@ -15,6 +15,12 @@ class ImageType extends AbstractType
                 'attr'  => array('class' => 'span2', 'rows' => 5, 'cols'=>80),
                 'label' => 'Opis'
             ))
+            ->add('album', 'entity', array('class'=>'CoreBundle:Album',
+                'property'  => 'name',
+                'required'  => false,
+                'empty_value' => 'Izberi album',
+                'label' => 'Album'
+            ))
             ->add('file', 'file', array(
                 'attr'  => array('class' => 'span2'),
                 'label' =>  'Datoteka'

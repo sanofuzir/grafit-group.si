@@ -1,0 +1,80 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Galerija{% endblock %}
+
+{% block content %}
+<div class="shop" style="width: 40%;">
+  <h2 class="admin-title">Albumi</h2>
+  <a class="btn btn-small pull-right" href="{{ path('_admin_add_album') }}"><i class="icon-plus"></i> Dodaj Album</a>
+  <table class="table table-condensed table-hover border mytable">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th style="text-align: center;">Ime</th>
+        <th style="text-align: center;">Slika</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% set counter = 0 %}
+      {% for item in albums %}
+      {% set counter = counter + 1 %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name}}</td>
+        <td>
+            <a href="{{ asset('album/')}}{{item.path }}" data-lightbox="album-{{ counter}}">
+              <img src="{{ asset('album/')}}{{item.path }}" alt="slika" style="width: 50px; height: 50px;"/>
+            </a>
+        </td>
+        <td><a href="{{ path('_admin_edit_album', {'id': item.id}) }}" title="Uredi album">
+                <i class="icon-edit"></i>Uredi</a>&nbsp;
+                <a href="{{ path('_admin_delete_album', {'id': item.id } ) }}" class="confirmation" title="Odstrani album" data-confirmation="Ali si prepričan?">
+                    <i class="icon-trash">Izbriši</i></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class="shop">
+  <h2>Slike</h2>
+  <a class="btn btn-small pull-right" href="{{ path('_admin_add_image') }}"><i class="icon-plus"></i> Dodaj Sliko</a>
+  <table class="table table-condensed table-hover border mytable">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th style="text-align: center;">Opis</th>
+        <th style="text-align: center;">Slika</th>
+        <th style="text-align: center;">Album</th>
+        <th style="text-align: center;">Datum vnosa</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% set counter = 0 %}
+      {% for item in images %}
+      {% set counter = counter + 1 %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.description|length > 50 ? item.description|slice(0, 50) ~ '...' : item.description }}</td>
+        <td>
+            <a href="{{ asset('galery/')}}{{item.path }}" data-lightbox="Novice-{{ counter}}">
+              <img src="{{ asset('galery/')}}{{item.path }}" alt="slika" style="width: 50px; height: 50px;"/>
+            </a>
+        </td>
+        {% if item.album is not empty %}
+          {% set album=item.album %}
+          <td>{{ album.name }}</td>
+        {% endif %}
+        <td>{{ item.created|date('d.m.Y H:i:s')}}</td>
+        <td><a href="{{ path('_admin_edit_image', {'id': item.id}) }}" title="Uredi sliko">
+                <i class="icon-edit"></i>Uredi</a>&nbsp;
+                <a href="{{ path('_admin_delete_image', {'id': item.id } ) }}" class="confirmation" title="Odstrani sliko" data-confirmation="Ali si prepričan?">
+                    <i class="icon-trash">Izbriši</i></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

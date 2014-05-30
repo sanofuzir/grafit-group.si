@@ -93,7 +93,7 @@ class Article
     /**
     * @var Category
     *
-    * @ORM\ManyToOne(targetEntity="Category", inversedBy="product")
+    * @ORM\ManyToOne(targetEntity="Category", inversedBy="article")
     *
     */
     protected $category;

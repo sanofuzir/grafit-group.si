@@ -12,8 +12,8 @@ class __TwigTemplate_ffa930b80094c04ac33ef2876a3b544b7893f64aac7a7eed4421121aea7
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'content' => array($this, 'block_content'),
-            '__internal_9cc3fc13c152609de4bc836fd59d65f6164093a27751d2da15e3c7910775c88b' => array($this, 'block___internal_9cc3fc13c152609de4bc836fd59d65f6164093a27751d2da15e3c7910775c88b'),
-            '__internal_1f14f47ec82b5a53e7b8291ea1fc1c0671fa2b668cd862be5257b2f0b435489c' => array($this, 'block___internal_1f14f47ec82b5a53e7b8291ea1fc1c0671fa2b668cd862be5257b2f0b435489c'),
+            '__internal_cf89285db399f1eac091b793bdce1f5e948b1eb8dc26bb38a8f524c714f0849d' => array($this, 'block___internal_cf89285db399f1eac091b793bdce1f5e948b1eb8dc26bb38a8f524c714f0849d'),
+            '__internal_f3f8d3b3d18f50dd66ebb8bdb67778452fee9c5450a34d2b7631c9d52dfe2896' => array($this, 'block___internal_f3f8d3b3d18f50dd66ebb8bdb67778452fee9c5450a34d2b7631c9d52dfe2896'),
         );
     }
 
@@ -37,7 +37,7 @@ class __TwigTemplate_ffa930b80094c04ac33ef2876a3b544b7893f64aac7a7eed4421121aea7
     public function block_content($context, array $blocks = array())
     {
         // line 6
-        echo "<h2>Novice</h2>
+        echo "<h2 class=\"admin-title\">Novice</h2>
 <a class=\"btn btn-small pull-right\" href=\"";
         // line 7
         echo $this->env->getExtension('routing')->getPath("_admin_add_news");
@@ -114,13 +114,13 @@ class __TwigTemplate_ffa930b80094c04ac33ef2876a3b544b7893f64aac7a7eed4421121aea7
             if (($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "actual") == "yes")) {
                 // line 35
                 echo "          <span style=\"color: red;\">";
-                echo twig_escape_filter($this->env, twig_upper_filter($this->env, (string) $this->renderBlock("__internal_9cc3fc13c152609de4bc836fd59d65f6164093a27751d2da15e3c7910775c88b", $context, $blocks)), "html", null, true);
+                echo twig_escape_filter($this->env, twig_upper_filter($this->env, (string) $this->renderBlock("__internal_cf89285db399f1eac091b793bdce1f5e948b1eb8dc26bb38a8f524c714f0849d", $context, $blocks)), "html", null, true);
                 echo "</span>
         ";
             } else {
                 // line 37
                 echo "          <span style=\"color: blue;\">";
-                echo twig_escape_filter($this->env, twig_upper_filter($this->env, (string) $this->renderBlock("__internal_1f14f47ec82b5a53e7b8291ea1fc1c0671fa2b668cd862be5257b2f0b435489c", $context, $blocks)), "html", null, true);
+                echo twig_escape_filter($this->env, twig_upper_filter($this->env, (string) $this->renderBlock("__internal_f3f8d3b3d18f50dd66ebb8bdb67778452fee9c5450a34d2b7631c9d52dfe2896", $context, $blocks)), "html", null, true);
                 echo "</span>
         ";
             }
@@ -162,13 +162,13 @@ class __TwigTemplate_ffa930b80094c04ac33ef2876a3b544b7893f64aac7a7eed4421121aea7
     }
 
     // line 35
-    public function block___internal_9cc3fc13c152609de4bc836fd59d65f6164093a27751d2da15e3c7910775c88b($context, array $blocks = array())
+    public function block___internal_cf89285db399f1eac091b793bdce1f5e948b1eb8dc26bb38a8f524c714f0849d($context, array $blocks = array())
     {
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "actual"), "html", null, true);
     }
 
     // line 37
-    public function block___internal_1f14f47ec82b5a53e7b8291ea1fc1c0671fa2b668cd862be5257b2f0b435489c($context, array $blocks = array())
+    public function block___internal_f3f8d3b3d18f50dd66ebb8bdb67778452fee9c5450a34d2b7631c9d52dfe2896($context, array $blocks = array())
     {
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "actual"), "html", null, true);
     }

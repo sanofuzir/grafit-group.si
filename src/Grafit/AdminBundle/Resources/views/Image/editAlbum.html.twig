@@ -1,0 +1,15 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+{% block title %}Albumi{% endblock %}
+
+{% block content %}
+<h2 class="admin-title">Dodajanje in urejanje albumov</h2>
+<form class="border image_form" action="{{ album.id ? path('_admin_edit_album', {'id': album.id}) : path('_admin_add_album') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <!--div class="form-actions"-->
+        <br />
+        <input type="submit" name="save" value="Shrani" class="btn btn-primary">
+    <!--/div-->
+</form>
+
+{% endblock %}

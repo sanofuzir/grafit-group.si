@@ -21,9 +21,15 @@
         <parameter key="grafit.storitve_manager.class">Grafit\CoreBundle\Models\StoritveManager</parameter>
         <parameter key="grafit.entity.Inquiry.class">Grafit\CoreBundle\Entity\Inquiry</parameter>
         <parameter key="grafit.inquiry_manager.class">Grafit\CoreBundle\Models\InquiryManager</parameter>
+        <parameter key="grafit.entity.Album.class">Grafit\CoreBundle\Entity\Album</parameter>
+        <parameter key="grafit.album_manager.class">Grafit\CoreBundle\Models\AlbumManager</parameter>
     </parameters>
 
     <services>
+        <service id="grafit.album_manager" class="%grafit.album_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%grafit.entity.album.class%</argument>
+        </service>
         <service id="grafit.storitve_manager" class="%grafit.storitve_manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument>%grafit.entity.storitve.class%</argument>
