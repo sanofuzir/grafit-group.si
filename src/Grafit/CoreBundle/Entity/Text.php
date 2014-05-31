@@ -43,6 +43,13 @@ class Text
     * )
     */
     protected $text;
+
+    /**
+    * @var string
+    *
+    * @ORM\Column(length=255)
+    */
+    protected $link;
     
     public function __construct() {
         $this->created = new \DateTime('now');
@@ -91,4 +98,27 @@ class Text
         return $this->text;
     }
     
+    /**
+     * Set link
+     *
+     * @param string $link
+     * @return Text
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
 }

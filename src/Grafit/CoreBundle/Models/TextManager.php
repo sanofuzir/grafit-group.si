@@ -29,20 +29,51 @@ class TextManager {
     }
 
     /**
-     * Get random Text
+     * Get last 3 Text
      *
      * @return Text
      */
-    public function getRandomText()
+    public function getTexts()
     {
         $texts = $this->repository->findAll();
-        shuffle($texts);
-        if (!empty($texts)) {
-            return $texts[0];
-        } else {
-            return null;
-        }
         
+        return array(
+                0   =>  array(
+                        'name' => $texts[0]->getText(),
+                        'link' => $this->returnLink($texts[0])
+                        ),
+                1   =>  array(
+                        'name' => $texts[1]->getText(),
+                        'link' => $this->returnLink($texts[1])
+                        ),
+                2   =>  array(
+                        'name' => $texts[2]->getText(),
+                        'link' => $this->returnLink($texts[2])
+                        ),
+            );
+    }
+
+    public function returnLink($data) 
+    {
+        $link = $data->getLink();
+        if (!empty($link)) {
+            switch ($link) {
+                case 'actual':
+                    $link = 'Shop/actual';
+                    break;
+                case 'shop':
+                    $link = '/Shop';
+                    break;
+                case 'services':
+                    $link = '/Services';
+                    break;
+                
+                default:
+                    $link = null;
+                    break;
+            }
+        }
+        return $link;
     }
 
     /**

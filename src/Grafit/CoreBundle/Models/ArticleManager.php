@@ -23,6 +23,16 @@ class ArticleManager {
     }
 
     /**
+     * Get actual Articles
+     *
+     * @return Article
+     */
+    public function findActualArticles()
+    {
+        return $this->repository->findActualArticles();
+    }
+
+    /**
      * Get Articles by category id
      *
      * @param int $id

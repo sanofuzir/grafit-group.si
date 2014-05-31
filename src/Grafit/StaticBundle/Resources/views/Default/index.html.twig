@@ -8,34 +8,24 @@
 	<img src="{{ asset('bundles/static/images/index.jpg') }}"/>
 </div>
 
-<!--
-<div class="texti-index">
-	{% if text is not empty %}
-	<p class="main-menu-title">{{ text.text }}</p>
-	<div class="circles">
-		<svg height="30" width="30">
-		  <circle cx="15" cy="15" r="10" stroke="#5DC13B" stroke-width="3" fill="#5DC13B" />
-		</svg>
-		<svg height="30" width="30">
-		  <circle cx="15" cy="15" r="10" stroke="black" stroke-width="3" fill="black" />
-		</svg>
-		<svg height="30" width="30">
-		  <circle cx="15" cy="15" r="10" stroke="black" stroke-width="3" fill="black" />
-		</svg>
-	</div>
-	{% endif %}
-</div>
-!-->
 <div class="oglasi" style="width: 99.6%;">
+	{% if texti is not empty %}
 	<div>
-		<p class="main-menu-title main-menu-title-labels" style="color: white;">{% trans %}Potrebujete novo <br> reklamno tablo?{% endtrans %}</p>
+		<a href="{{ texti.0.link }}">
+			<p class="main-menu-title main-menu-title-labels" style="color: white;">{{ texti.0.name }}</p>
+		</a>
 	</div>
 	<div style="background-color: #6FC851;">
-		<p class="main-menu-title main-menu-title-labels" style="color: white;">{% trans %}Želite, da je vaš jekleni <br> konjiček nekaj posebnega?{% endtrans %}</p>
+		<a href="{{ texti.1.link }}">
+			<p class="main-menu-title main-menu-title-labels" style="color: white;">{{ texti.1.name }}</p>
+		</a>
 	</div>
 	<div style="background-color: #93D67C;">
-		<p class="main-menu-title main-menu-title-labels" style="color: white;">{% trans %}Potrebujete novo <br> grafično podobo?{% endtrans %}</p>
+		<a href="{{ texti.2.link }}">
+			<p class="main-menu-title main-menu-title-labels" style="color: white;">{{ texti.2.name }}</p>
+		</a>
 	</div>
+	{% endif %}
 </div>
 <table style="margin-top: 120px;" id="index-table">
 	<tr>

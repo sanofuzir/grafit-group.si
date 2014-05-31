@@ -15,6 +15,11 @@ class TextType extends AbstractType
                 'attr'  => array('class' => 'span2', 'rows' => 5, 'cols'=>80),
                 'label' => 'Text'
             ))
+            ->add('link', 'choice', array(
+                'choices' => array('actual' => 'Aktualni izdeleki', 'shop' => 'Trgovina', 'services' => 'Storitve'),
+                'preferred_choices' => array('baz'),
+                'label' => 'Povezava na'
+            ))
             ;
     }
 

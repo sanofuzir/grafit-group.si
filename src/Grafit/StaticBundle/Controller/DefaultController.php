@@ -78,12 +78,12 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $text = $this->getTextManager()->getRandomText();
+        $texti = $this->getTextManager()->getTexts();
         $actualNews = $this->getNewsManager()->findActualNews();
         $news = $this->getNewsManager()->findLastTwoNews();
         $services = $this->getServiceManager()->findLastTreeStoritve();
 
-        return array( 'text' => $text,
+        return array( 'texti' => $texti,
                       'actualNews' => $actualNews,
                       'news' => $news,
                       'services' => $services
@@ -120,6 +120,22 @@ class DefaultController extends Controller
         $categorys = $this->getCategoryManager()->findAllCategorys();
 
         return array('articles' => $articles, 'categorys' => $categorys);
+    }
+
+    /**
+     * @Route("sl/Shop/actual", name="_shop_actual_sl")
+     * @Route("en/Shop/actual", name="_shop_actual_en")
+     * @Template()
+     */
+    public function actualAction()
+    {
+        $articles = $this->getArticleManager()->findActualArticles();
+        $categorys = $this->getCategoryManager()->findAllCategorys();
+
+        return $this->render(
+            'StaticBundle:Default:categoryArticle.html.twig',
+            array('articles' => $articles, 'categorys' => $categorys)
+        );
     }
     
     /**

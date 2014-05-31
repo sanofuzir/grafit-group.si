@@ -16,6 +16,7 @@ class TextRepository extends EntityRepository
     {
         return $this->getEntityManager()
                     ->createQuery('SELECT t FROM CoreBundle:text t ORDER BY t.created DESC')
+                    ->setMaxResults(3)
                     ->getResult();
     }
 }

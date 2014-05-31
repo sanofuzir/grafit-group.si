@@ -461,6 +461,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Grafit\\StaticBundle\\Controller\\DefaultController::shopAction',  '_route' => '_shop',);
         }
 
+        // _shop_actual_sl
+        if ($pathinfo === '/sl/Shop/actual') {
+            return array (  '_controller' => 'Grafit\\StaticBundle\\Controller\\DefaultController::actualAction',  '_route' => '_shop_actual_sl',);
+        }
+
+        // _shop_actual_en
+        if ($pathinfo === '/en/Shop/actual') {
+            return array (  '_controller' => 'Grafit\\StaticBundle\\Controller\\DefaultController::actualAction',  '_route' => '_shop_actual_en',);
+        }
+
         // _category_article
         if (0 === strpos($pathinfo, '/article/category') && preg_match('#^/article/category/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => '_category_article')), array (  '_controller' => 'Grafit\\StaticBundle\\Controller\\DefaultController::categoryArticleAction',));

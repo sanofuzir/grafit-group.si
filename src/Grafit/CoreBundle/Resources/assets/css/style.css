@@ -312,6 +312,7 @@ h3 {
 .images-item p {
     margin-top: 20px;
     text-align: center;
+    vertical-align: text-bottom;
     color: black;
 }
 /* trgovina */

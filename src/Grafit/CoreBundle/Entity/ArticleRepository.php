@@ -26,4 +26,12 @@ class ArticleRepository extends EntityRepository
                     ->setParameter('id', $id)
                     ->getResult();
     }
+    
+    public function findActualArticles() 
+    {
+        return $this->getEntityManager()
+                    ->createQuery('SELECT a FROM CoreBundle:article a WHERE a.status = :status ORDER BY a.created DESC')
+                    ->setParameter('status', 'Actual')
+                    ->getResult();
+    }
 }
