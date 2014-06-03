@@ -244,7 +244,8 @@ class DefaultController extends Controller
         $message = \Swift_Message::newInstance()
                 ->setSubject('Povpraševanje')
                 ->setFrom($data->getEmail())
-                ->setTo('info@grafit-group.si')
+             //   ->setTo('info@grafit-group.si')
+                ->setTo('sano.fuzir@gmail.com')
                 ->setBody(
                     $this->renderView(
                         'StaticBundle:Email:email.html.twig',
